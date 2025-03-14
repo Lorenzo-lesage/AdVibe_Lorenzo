@@ -1,0 +1,231 @@
+/* PALETTE */
+:root {
+    --color-primary: rgb(248, 248, 248);
+    --color-secondary: #001829;
+    --color-secondary-op: #0018299e;
+    --color-tertiary: #50c4c9;
+    --color-quaternary: #bd89ad;
+    --color-quinary: rgb(244, 105, 93);
+    --color-quinary-op: rgba(244, 106, 93, 0.341);
+}
+
+/* FONT */
+:root {
+    --font-secondary: "Karla", sans-serif;
+    --font-primary1: "Genos", sans-serif;
+}
+
+/* FONT APPLICATI */
+* {
+    font-family: var(--font-secondary);
+}
+
+.text-title {
+    font-family: var(--font-primary1);
+}
+
+.text-gradient-title {
+    background: linear-gradient(
+        90deg,
+        var(--color-quinary),
+        var(--color-quinary-op)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    margin-top: 3rem;
+    color: var(--color-secondary);
+}
+
+.transition {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* COLORI BOTTONE */
+.btn-custom {
+    color: var(--color-quinary) !important;
+    border: 1px solid var(--color-quinary) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.btn-custom:hover {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-secondary) !important;
+}
+
+/* COLORI BACKGROUND E BACKGROUND IMG */
+.bg-1 {
+    background-color: var(--color-primary);
+}
+.bg-2 {
+    background-color: var(--color-secondary);
+}
+.bg-2-op {
+    background-color: var(--color-secondary-op);
+}
+
+.bg-page-form {
+    background: linear-gradient(
+            rgb(248, 248, 248, 0.2),
+            rgb(248, 248, 248, 0.5),
+            rgb(248, 248, 248, 1)
+        ),
+        url("/storage/app/public/media/sfondo1.webp");
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+/* COLORI TESTI */
+.text-color-1 {
+    color: var(--color-primary) !important;
+}
+.text-color-2 {
+    color: var(--color-secondary);
+}
+.text-color-5 {
+    color: var(--color-quinary);
+}
+
+/* HOMEPAGE */
+/* HEADER HOME */
+.bg-image {
+    background: linear-gradient(
+            rgb(248, 248, 248, 0.2),
+            rgb(248, 248, 248, 0.5),
+            rgb(248, 248, 248)
+        ),
+        url("/storage/app/public/media/bg-home.png");
+    background-size: cover;
+    background-position: bottom;
+    min-height: 90vh;
+}
+
+.img-header {
+    width: 60vw;
+}
+
+/* NAVBAR */
+.custom-offcanvas {
+    width: 80% !important; /* Occupa solo il 60% dello schermo su mobile */
+    max-width: 350px; /* Limite massimo di larghezza */
+    transition: transform 0.6s ease-in-out !important; /* Animazione più lenta */
+}
+
+
+.logo {
+    max-width: 120px;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+.active {
+    color: var(--color-quinary) !important;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    background-color: var(--color-secondary) !important;
+}
+
+
+.nav-link:hover {
+    color: var(--color-quinary) !important;
+}
+
+.dropdown-item:hover {
+    background-color: inherit !important;
+    color: var(--color-quinary) !important;
+}
+
+.dropdown-item.active {
+    background-color: transparent !important;
+    color: var(--color-quinary);
+    font-weight: bold;
+}
+
+.logout-link:hover {
+    background-color: inherit;
+    color: var(--color-secondary) !important;
+    border-radius: 5px;
+}
+
+.dropdown-toggle {
+    color: var(--color-primary) !important;
+}
+.dropdown-toggle.show {
+    color: var(--color-quinary) !important;
+}
+
+#settings {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(360deg);
+}
+
+.mt-custom {
+    margin-top: 9px !important;
+    right: -12px !important;
+    border-radius: 0 0 7px 7px !important;
+}
+
+.custom-offcanvas {
+    background-color: var(--color-secondary) !important; /* Colore di sfondo personalizzato (arancione) */
+    color: var(--color-primary) !important; /* Colore del testo */
+}
+
+.nav-scrolled {
+    background-color: var(--color-secondary);
+}
+
+
+/* LOGIN PAGE */
+.heigh-custom {
+    min-height: 60vh;
+}
+
+/* FOOTER */
+.btn-footer {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-secondary) !important;
+    width: 200px;
+}
+
+.btn-footer:hover {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-quinary) !important;
+    border-color: var(--color-quinary) !important;
+}
+
+/* MEDIA QUERIES */
+
+/* Applicare la classe nav-scrolled solo su schermi di larghezza >= 992px (desktop) */
+@media (min-width: 992px) {
+    .nav-scrolled {
+        backdrop-filter: blur(7px) !important;
+        background-color: var(--color-secondary-op) !important;
+    }
+}
+
+@media (min-width: 992px) { /* md breakpoint */
+    .min-vh-md-100 {
+        min-height: 100vh;
+    }
+}
+
+
+
+@media (max-width: 992px) { /* md breakpoint */
+    .img-header {
+        width: 100vw;
+    }
+}
+
