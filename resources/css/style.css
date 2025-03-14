@@ -186,6 +186,46 @@ body {
     background-color: var(--color-secondary);
 }
 
+/* Nascondi la barra di ricerca inizialmente */
+#search-bar {
+    display: none;  /* Nascondi la barra di ricerca per default */
+    position: absolute;  /* Posizionamento assoluto sopra la navbar */
+    top: 10px;  /* Distanza dall'alto della navbar */
+    right: 10px;  /* Distanza dal lato destro */
+    background-color: rgba(255, 255, 255, 0.9);  /* Colore di sfondo chiaro */
+    padding: 5px 10px;  /* Spaziatura interna */
+    border-radius: 5px;  /* Bordo arrotondato */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Leggero effetto ombra */
+    z-index: 1050;  /* Assicurati che la barra di ricerca sia visibile sopra altri elementi */
+    width: 200px;  /* Larghezza del campo di ricerca */
+}
+
+#search-input {
+    border: 1px solid #ccc;  /* Aggiungi un bordo per il campo di input */
+    outline: none;  /* Rimuovi il bordo di default */
+    padding: 5px;  /* Spaziatura interna */
+    width: 100%;  /* L'input dovrebbe occupare tutta la larghezza disponibile */
+    border-radius: 5px;  /* Bordo arrotondato */
+}
+
+#search-bar.d-none {
+    display: none;  /* Barra nascosta */
+}
+
+
+#search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 200px; /* Larghezza del campo di ricerca */
+}
+
+#search-bar.d-none {
+    display: none; /* Barra nascosta */
+}
+
+
+
 
 /* LOGIN PAGE */
 .heigh-custom {
@@ -213,14 +253,11 @@ body {
         backdrop-filter: blur(7px) !important;
         background-color: var(--color-secondary-op) !important;
     }
-}
 
-@media (min-width: 992px) { /* md breakpoint */
     .min-vh-md-100 {
         min-height: 100vh;
     }
 }
-
 
 
 @media (max-width: 992px) { /* md breakpoint */
@@ -228,4 +265,19 @@ body {
         width: 100vw;
     }
 }
+
+/* Centra il logo su mobile */
+@media (max-width: 992px) {
+    .navbar-brand {
+        margin-left: auto; /* Centra il logo su schermi piccoli */
+    }
+
+    #search-bar {
+        width: 100%;  /* Occupa tutta la larghezza su schermi piccoli */
+        right: 0;  /* Aggiusta la posizione */
+    }
+
+}
+
+
 
