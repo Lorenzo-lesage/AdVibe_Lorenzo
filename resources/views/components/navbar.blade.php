@@ -1,4 +1,4 @@
-{{-- <nav class="navbar navbar-expand-lg border-bottom border-body bg-2 fixed-top transition" data-bs-theme="dark"
+{{-- {{-- <nav class="navbar navbar-expand-lg border-bottom border-body bg-2 fixed-top transition" data-bs-theme="dark"
     id="navbar">
     <div class="container-fluid">
         <!-- Logo -->
@@ -124,10 +124,12 @@
                             aria-expanded="false">
                             Categorie
                         </a>
-                        <ul class="dropdown-menu dropdoen-menu-endr">
+                        <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition"
+                            id="dropdown-menu">
                             @foreach ($categories as $category)
                                 <li>
-                                    <a class="dropdown-item text-capitalize" href="{{ route('byCategory',['category' => $category])}}">{{ $category->name }}</a>
+                                    <a class="dropdown-item text-capitalize"
+                                        href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -161,7 +163,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li class="d-flex justify-content-center">
-                                    <div class="btn btn-danger btn-sm p-0 w-100 mx-2 mt-2">
+                                    <div class="btn btn-danger btn-sm p-0 w-100 mx-2 mt-2 d-none d-lg-block">
                                         <a class="dropdown-item text-color-2 logout-link transition" href="#"
                                             onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
                                     </div>
@@ -171,8 +173,17 @@
                                 </form>
                             </ul>
                         </li>
-                    @endauth
-                </ul>
+                        <li class="logout-container d-flex justify-content-end d-block d-lg-none">
+                            <a class="logout-icon transition" href="#"
+                                onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
+                                <i class="bi bi-box-arrow-right"></i>
+                            </a>
+                        </li>
+                        <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">
+                            @csrf
+                        </form>
+                    </ul>
+                @endauth
             </div>
         </div>
     </div>

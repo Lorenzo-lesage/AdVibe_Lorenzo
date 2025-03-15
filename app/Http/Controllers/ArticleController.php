@@ -35,7 +35,26 @@ class ArticleController extends Controller implements HasMiddleware
 
     public function bycategory(Category $category)
     {
-        return view('article.byCategory', ['articles' => $category->articles, 'category' => $category]);
+        // Array delle immagini per categoria
+        $categoryImages = [
+            'Smartphone' => 'images/smartphone.jpg',
+            'Tablet' => 'images/tablet.jpg',
+            'Smartwatch' => 'images/smartwatch.jpg',
+            'Laptop' => 'images/laptop.jpg',
+            'Fotocamere' => 'images/camera.jpg',
+            'Videocamere' => 'images/video_camera.jpg',
+            'Videogiochi' => 'images/video_games.jpg',
+            'Console' => 'images/console.jpg',
+            'Stampanti' => 'images/printer.jpg',
+            'Droni' => 'images/drone.jpg',
+        ];
+
+        // Passa l'array di immagini alla vista insieme alla categoria
+        return view('article.byCategory', [
+            'articles' => $category->articles,
+            'category' => $category,
+            'categoryImages' => $categoryImages
+        ]);
     }
 
 }

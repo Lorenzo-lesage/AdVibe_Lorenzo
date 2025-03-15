@@ -8,9 +8,14 @@
     <title>@stack('title', 'Default Title')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>AdVibe</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+
+
 </head>
 
-<body class="{{ request()->routeIs('homepage') ? 'bg-1' : 'bg-page-form' }}">
+<body class="bg-1">
     <x-navbar />
 
     <div class="min-vh-md-100">
@@ -18,7 +23,8 @@
     </div>
 
     <x-footer />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </body>
 
 </html>
-

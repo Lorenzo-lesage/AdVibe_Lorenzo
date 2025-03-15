@@ -5,7 +5,7 @@
     <div class="container mt-5 mb-5 pb-md-5 pb-lg-0 mb-lg-0">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold">
+                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom">
                     Accedi
                 </h1>
             </div>
@@ -13,7 +13,7 @@
         <div class="row justify-content-center align-items-center height-custom">
             <div class="col-12 col-lg-6">
                 <form method="POST" action="{{ route('login') }}"
-                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5">
+                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5 bg-card">
                     @csrf
                     <!-- EMAIL -->
                     <div class="mb-3">

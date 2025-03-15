@@ -1,5 +1,5 @@
 <div>
-    <form class="shadow rounded p-md-5 p-4 pb-md-3 pb-3 mb-lg-0 mb-5" wire:submit="store">
+    <form class="shadow rounded p-md-5 p-4 pb-md-3 pb-3 mb-lg-0 mb-5 bg-card" wire:submit="store">
         <div class="mb-3">
             <label for="title" class="form-label mb-0">Titolo:</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"

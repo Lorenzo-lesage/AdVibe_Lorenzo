@@ -1,18 +1,18 @@
 // NAVBAR
 let navbar = document.querySelector("#navbar");
-// let dropdown = document.querySelector("#dropdown-menu");
+let dropdown = document.querySelector("#dropdown-menu");
 let dropdownUser = document.querySelector("#dropdown-user");
 // let dropdownLanguage = document.querySelector("#dropdown-language");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
         navbar.classList.add("nav-scrolled");
-        // dropdown.classList.add("nav-scrolled");
+        dropdown.classList.add("nav-scrolled");
         if (dropdownUser) dropdownUser.classList.add("nav-scrolled");
         // if (dropdownLanguage) dropdownLanguage.classList.add("nav-scrolled");
     } else {
         navbar.classList.remove("nav-scrolled");
-        // dropdown.classList.remove("nav-scrolled");
+        dropdown.classList.remove("nav-scrolled");
         if (dropdownUser) dropdownUser.classList.remove("nav-scrolled");
         // if (dropdownLanguage) dropdownLanguage.classList.remove("nav-scrolled");
     }
@@ -79,7 +79,11 @@ searchIcon.addEventListener("click", (e) => {
 // Chiude la barra di ricerca quando si clicca fuori
 document.body.addEventListener("click", (e) => {
     // Controlla che il clic non sia sulla barra di ricerca o sull'icona
-    if (!searchBar.contains(e.target) && !searchIcon.contains(e.target) && !searchBar.classList.contains("d-none")) {
+    if (
+        !searchBar.contains(e.target) &&
+        !searchIcon.contains(e.target) &&
+        !searchBar.classList.contains("d-none")
+    ) {
         searchBar.classList.add("d-none"); // Nasconde la barra
 
         if (isMobile()) {
@@ -89,6 +93,16 @@ document.body.addEventListener("click", (e) => {
 });
 
 // ------------------------------------------------------------------------------------------------
-
-
-
+// SWIPER HOMEPAGE
+var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,  // Ensures that one slide is shown at a time
+    spaceBetween: 20,  // Optional: adjusts space between slides
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,  // Optional: allows pagination dots to be clickable
+    }
+});
