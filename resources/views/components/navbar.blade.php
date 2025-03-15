@@ -78,21 +78,22 @@
 
 <nav class="navbar navbar-expand-lg border-bottom border-body bg-2 fixed-top transition" data-bs-theme="dark"
     id="navbar">
-    <div class="container-fluid d-flex justify-content-between">
+    <div class="container-fluid d-flex justify-content-start">
         <!-- Bottone per aprire il menu laterale -->
-        <button class="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="bi bi-gear-fill" id="settings"></i></span>
+        <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span><i class="bi bi-gear-fill" id="settings" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarNav"></i></span>
         </button>
 
-        <!-- Icona di ricerca (in alto a destra) -->
-        <button id="searchIcon" class="btn btn-outline-light">
+        <!-- Icona della lente (visibile solo su mobile e tablet) -->
+        <button id="searchIcon" class="btn text-color-1 d-lg-none me-0">
             <i class="bi bi-search"></i>
         </button>
 
-        <!-- Barra di ricerca (nascosta inizialmente) -->
+        <!-- Barra di ricerca -->
         <div id="searchBar" class="d-none">
-            <input type="text" class="form-control" placeholder="Cerca...">
+            <input type="text" id="searchInput" placeholder="Cerca..." class="form-control w-auto me-auto">
         </div>
 
         <!-- Logo -->
@@ -101,7 +102,7 @@
         </a>
 
         <!-- Offcanvas (menu laterale) con larghezza ridotta -->
-        <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="navbarNav"
+        <div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="navbarNav"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title text-color-1" id="offcanvasNavbarLabel">Menù</h5>
@@ -113,6 +114,23 @@
                     <li class="nav-item">
                         <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
                             href="{{ route('homepage') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'index.article' ? 'active' : '' }}"
+                            href="{{ route('index.article') }}">Catalogo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categorie
+                        </a>
+                        <ul class="dropdown-menu dropdoen-menu-endr">
+                            @foreach ($categories as $category)
+                                <li>
+                                    <a class="dropdown-item text-capitalize" href="{{ route('byCategory',['category' => $category])}}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </li>
                 </ul>
                 @guest

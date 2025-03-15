@@ -32,7 +32,8 @@ class CreateArticleForm extends Component
         ]);
 
         $this->reset();
-        session()->flash('success', 'Articolo creato con successo');
+        return redirect()->route('create.article')->with('success', 'Operazione avvenuta con successo!');
+
     }
 
     public function render()

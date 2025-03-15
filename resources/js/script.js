@@ -18,6 +18,7 @@ window.addEventListener("scroll", () => {
     }
 });
 
+// ------------------------------------------------------------------------------------------------
 // TASTO SETTINGS NAVBAR
 const settingsButton = document.querySelector("#settings");
 const closeButton = document.querySelector(".btn-close");
@@ -53,26 +54,41 @@ document.body.addEventListener("click", (e) => {
     }
 });
 
-
-
+// ------------------------------------------------------------------------------------------------
 // SEARCHBAR
-// Seleziona l'icona della lente e la barra di ricerca
 const searchIcon = document.querySelector("#searchIcon");
 const searchBar = document.querySelector("#searchBar");
+const logo = document.querySelector(".navbar-brand");
 
-// Aggiungi evento di click per mostrare/nascondere la barra di ricerca
+// Funzione per controllare se siamo su mobile
+function isMobile() {
+    return window.innerWidth <= 768; // True se la finestra è ≤ 768px (telefono)
+}
+
+// Mostra/nasconde la barra di ricerca
 searchIcon.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita che il click si propaghi al body
-    searchBar.classList.toggle("d-none"); // Mostra/nasconde la barra
-});
+    e.stopPropagation(); // Evita la chiusura immediata
 
-// Aggiungi evento al body per chiudere la barra di ricerca quando clicchi fuori
-document.body.addEventListener("click", (e) => {
-    if (!searchBar.contains(e.target) && !searchIcon.contains(e.target)) {
-        searchBar.classList.add("d-none");
+    searchBar.classList.toggle("d-none"); // Mostra/nasconde la barra
+
+    if (isMobile()) {
+        logo.classList.toggle("logo-hidden"); // Nasconde il logo SOLO su mobile
     }
 });
 
+// Chiude la barra di ricerca quando si clicca fuori
+document.body.addEventListener("click", (e) => {
+    // Controlla che il clic non sia sulla barra di ricerca o sull'icona
+    if (!searchBar.contains(e.target) && !searchIcon.contains(e.target) && !searchBar.classList.contains("d-none")) {
+        searchBar.classList.add("d-none"); // Nasconde la barra
+
+        if (isMobile()) {
+            logo.classList.remove("logo-hidden"); // Riappare il logo SOLO su mobile
+        }
+    }
+});
+
+// ------------------------------------------------------------------------------------------------
 
 
 

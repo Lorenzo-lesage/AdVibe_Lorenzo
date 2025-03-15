@@ -1,6 +1,6 @@
 <x-layout>
     @push('title')
-        {{ __('AdVibe') }}
+        AdVibe-Home
     @endpush
 
     <div class="container-fluid bg-image">
@@ -38,6 +38,24 @@
                     </div>
                 </div>
             @endguest
+        </div>
+    </div>
+    <div class="container my-5 py-5">
+        <h2 class="display-5 pt-md-5 mt-5 mb-0 text-title text-gradient-title fw-semibold text-center border-custom">
+            Ultimi annunci pubblicati
+        </h2>
+        <div class="row heigh-custom justify-content-center align-items-center bg-3-op text-color-2 rounded-bottom-3 shadow mx-1">
+            @forelse ($articles as $article)
+                <div class="col-12 col-md-3 justify-content-center d-flex">
+                    <x-card :article="$article" />
+                </div>
+            @empty
+                <div class="col-12">
+                    <h3 class="fw-semibold text-center w-md-50">
+                        Non sono ancora stati pubblicati annunci
+                    </h3>
+                </div>
+            @endforelse
         </div>
     </div>
 </x-layout>

@@ -2,11 +2,12 @@
 :root {
     --color-primary: rgb(248, 248, 248);
     --color-secondary: #001829;
-    --color-secondary-op: #0018299e;
+    --color-secondary-op: #00182986;
     --color-tertiary: #50c4c9;
     --color-quaternary: #bd89ad;
     --color-quinary: rgb(244, 105, 93);
     --color-quinary-op: rgba(244, 106, 93, 0.341);
+    --color-quinary-op-2: rgba(244, 106, 93, 0.112);
 }
 
 /* FONT */
@@ -15,6 +16,7 @@
     --font-primary1: "Genos", sans-serif;
 }
 
+/* ----------------------------------------------------------------------------------------------------------- */
 /* FONT APPLICATI */
 * {
     font-family: var(--font-secondary);
@@ -34,6 +36,53 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* ----------------------------------------------------------------------------------------------------------- */
+/* COLORI BACKGROUND E BACKGROUND IMG */
+.bg-1 {
+    background-color: var(--color-primary);
+}
+.bg-2 {
+    background-color: var(--color-secondary);
+}
+.bg-2-op {
+    background-color: var(--color-secondary-op);
+}
+.bg-3 {
+    background-color: var(--color-quinary);
+}
+.bg-3-op {
+    background: linear-gradient(to bottom right,
+        var(--color-quinary-op-2) 0%,
+        var(--color-quinary-op) 50%,
+        var(--color-quinary-op-2) 100%);
+}
+
+.bg-page-form {
+    background: linear-gradient(
+            rgb(248, 248, 248, 0.2),
+            rgb(248, 248, 248, 0.5),
+            rgb(248, 248, 248, 1)
+        ),
+        url("/storage/app/public/media/sfondo1.webp");
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* COLORI TESTI */
+.text-color-1 {
+    color: var(--color-primary) !important;
+}
+.text-color-2 {
+    color: var(--color-secondary);
+}
+.text-color-5 {
+    color: var(--color-quinary);
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* FUNZINALITÀ GENERICHE */
 body {
     margin-top: 3rem;
     color: var(--color-secondary);
@@ -55,40 +104,66 @@ body {
     color: var(--color-secondary) !important;
 }
 
-/* COLORI BACKGROUND E BACKGROUND IMG */
-.bg-1 {
-    background-color: var(--color-primary);
-}
-.bg-2 {
-    background-color: var(--color-secondary);
-}
-.bg-2-op {
-    background-color: var(--color-secondary-op);
+.border-custom {
+    position: relative;
+    padding-bottom: 10px; /* Aggiungi spazio per il bordo */
 }
 
-.bg-page-form {
+.border-custom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    border-radius: 100px;
     background: linear-gradient(
-            rgb(248, 248, 248, 0.2),
-            rgb(248, 248, 248, 0.5),
-            rgb(248, 248, 248, 1)
-        ),
-        url("/storage/app/public/media/sfondo1.webp");
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: fixed;
+        90deg,
+        var(--color-quinary-op),
+        var(--color-quinary)
+    );
 }
 
-/* COLORI TESTI */
-.text-color-1 {
+/* ----------------------------------------------------------------------------------------------------------- */
+/* COMPONENTE */
+/* CARD */
+.card-container {
+    max-width: 19rem;
+}
+.w-custom {
+    width: 90%;
+}
+
+.bg-card {
+    background: linear-gradient(to bottom right,
+        var(--color-quinary-op) 0%,
+        var(--color-quinary-op-2) 50%,
+        var(--color-quinary-op) 100%);
+}
+
+.btn-card {
+    color: var(--color-secondary) !important;
+    border: 1px solid var(--color-quinary) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.btn-card:hover {
+    background-color: var(--color-quinary) !important;
     color: var(--color-primary) !important;
 }
-.text-color-2 {
-    color: var(--color-secondary);
+
+.btn-category {
+    border: 1px solid var(--color-secondary) !important;
+    padding: 2px 8px !important;
 }
-.text-color-5 {
-    color: var(--color-quinary);
+.btn-category:hover {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-primary) !important;
 }
 
+
+/* COMPONENTE */
+
+/* ----------------------------------------------------------------------------------------------------------- */
 /* HOMEPAGE */
 /* HEADER HOME */
 .bg-image {
@@ -107,21 +182,14 @@ body {
     width: 60vw;
 }
 
+/* ----------------------------------------------------------------------------------------------------------- */
 /* NAVBAR */
-.custom-offcanvas {
-    width: 80% !important; /* Occupa solo il 60% dello schermo su mobile */
-    max-width: 350px; /* Limite massimo di larghezza */
-    transition: transform 0.6s ease-in-out !important; /* Animazione più lenta */
-}
-
-
 .logo {
     max-width: 120px;
 }
 .logo:hover {
     transform: scale(1.1);
 }
-
 
 .active {
     color: var(--color-quinary) !important;
@@ -131,7 +199,6 @@ body {
 .dropdown-menu {
     background-color: var(--color-secondary) !important;
 }
-
 
 .nav-link:hover {
     color: var(--color-quinary) !important;
@@ -186,52 +253,61 @@ body {
     background-color: var(--color-secondary);
 }
 
-/* Nascondi la barra di ricerca inizialmente */
-#search-bar {
-    display: none;  /* Nascondi la barra di ricerca per default */
-    position: absolute;  /* Posizionamento assoluto sopra la navbar */
-    top: 10px;  /* Distanza dall'alto della navbar */
-    right: 10px;  /* Distanza dal lato destro */
-    background-color: rgba(255, 255, 255, 0.9);  /* Colore di sfondo chiaro */
-    padding: 5px 10px;  /* Spaziatura interna */
-    border-radius: 5px;  /* Bordo arrotondato */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Leggero effetto ombra */
-    z-index: 1050;  /* Assicurati che la barra di ricerca sia visibile sopra altri elementi */
-    width: 200px;  /* Larghezza del campo di ricerca */
+/* ----------------------------------------------------------------------------------------------------------- */
+/* NAVBAR RESPONSIVE */
+.custom-offcanvas {
+    width: 80% !important; /* Occupa solo il 60% dello schermo su mobile */
+    max-width: 350px; /* Limite massimo di larghezza */
+    transition: transform 0.6s ease-in-out !important; /* Animazione più lenta */
 }
 
-#search-input {
-    border: 1px solid #ccc;  /* Aggiungi un bordo per il campo di input */
-    outline: none;  /* Rimuovi il bordo di default */
-    padding: 5px;  /* Spaziatura interna */
-    width: 100%;  /* L'input dovrebbe occupare tutta la larghezza disponibile */
-    border-radius: 5px;  /* Bordo arrotondato */
+.navbar {
+    height: 59.8px;
 }
 
-#search-bar.d-none {
-    display: none;  /* Barra nascosta */
+.navbar-toggler {
+    border: none !important;
+    box-shadow: none !important;
 }
 
+/* Stile per la barra di ricerca */
+#searchBar {
+    background-color: #eae4e4;  /* Colore di sfondo */
+    border-radius: 20px;         /* Angoli arrotondati */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Ombra leggera */
+}
 
-#search-input {
+/* Stile per il campo di input */
+#searchInput {
+    background-color: var(--color-secondary);      /* Colore di sfondo del campo di input */
+    color: var(--color-primary);                 /* Colore del testo */
+    border: 2px solid var(--color-primary);      /* Bordo grigio chiaro */
+    border-radius: 20px;
+    transition: border-color 0.3s ease;  /* Animazione per il cambio del bordo */
+}
+
+/* Cambia il bordo quando il campo di input è in focus */
+#searchInput:focus {
+    border-color: var(--color-quinary); /* Colore del bordo quando il campo è attivo */
+    outline: none;         /* Rimuove l'outline di default */
+}
+
+#searchInput::placeholder {
+    color: var(--color-primary); /* Colore desiderato per il placeholder */
+    opacity: 0.8; /* Opacità, se vuoi che sia visibile */
+}
+
+#searchIcon {
     border: none;
-    outline: none;
-    padding: 5px;
-    width: 200px; /* Larghezza del campo di ricerca */
 }
 
-#search-bar.d-none {
-    display: none; /* Barra nascosta */
-}
-
-
-
-
+/* ----------------------------------------------------------------------------------------------------------- */
 /* LOGIN PAGE */
 .heigh-custom {
     min-height: 60vh;
 }
 
+/* ----------------------------------------------------------------------------------------------------------- */
 /* FOOTER */
 .btn-footer {
     background-color: var(--color-quinary) !important;
@@ -245,6 +321,7 @@ body {
     border-color: var(--color-quinary) !important;
 }
 
+/* ----------------------------------------------------------------------------------------------------------- */
 /* MEDIA QUERIES */
 
 /* Applicare la classe nav-scrolled solo su schermi di larghezza >= 992px (desktop) */
@@ -271,13 +348,12 @@ body {
     .navbar-brand {
         margin-left: auto; /* Centra il logo su schermi piccoli */
     }
-
-    #search-bar {
-        width: 100%;  /* Occupa tutta la larghezza su schermi piccoli */
-        right: 0;  /* Aggiusta la posizione */
-    }
-
 }
 
+@media (max-width: 768px) {
+    .logo-hidden {
+        display: none !important;
+    }
+}
 
 

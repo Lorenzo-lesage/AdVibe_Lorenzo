@@ -22,8 +22,11 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label mb-0">Prezzo:</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
-                wire:model.blur="price">
+            <div class="input-group">
+                <input type="text" class="form-control @error('price') is-invalid @enderror" id="price"
+                    wire:model.blur="price" placeholder="0.00">
+                <span class="input-group-text">€</span>
+            </div>
             @error('price')
                 <p class="fst-italic text-danger">
                     {{ $message }}
@@ -50,3 +53,4 @@
         </div>
     </form>
 </div>
+
