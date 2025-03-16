@@ -8,7 +8,7 @@
                 <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">Informazioni articolo</h1>
             </div>
         </div>
-        <div class="row justify-content-center align-items-center height-custom mb-5 bg-3-op rounded-bottom-3 shadow px-2 py-5 mx-1">
+        <div class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3 px-2 py-5 mx-1">
             <div class="col-12 col-md-6 mb-3">
                 <div id="carouselExample" class="carousel slide">
                     <div class="carousel-inner">

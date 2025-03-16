@@ -96,7 +96,7 @@ document.body.addEventListener("click", (e) => {
 // SWIPER HOMEPAGE
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,  // Ensures that one slide is shown at a time
-    spaceBetween: 20,  // Optional: adjusts space between slides
+    spaceBetween: 40,  // Optional: adjusts space between slides
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -104,5 +104,70 @@ var swiper = new Swiper('.swiper-container', {
     pagination: {
         el: '.swiper-pagination',
         clickable: true,  // Optional: allows pagination dots to be clickable
+    },
+    scrollbar: {
+        el: ".swiper-scrollbar",
+        hide: true,
+    },
+});
+
+// ------------------------------------------------------------------------------------------------
+// I NOSTRI NUMERI HOME
+// Aggiungi questo script nella tua sezione @push('scripts')
+document.addEventListener('DOMContentLoaded', function() {
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = document.querySelectorAll('.counter-value');
+                counters.forEach(counter => {
+                    const value = counter.innerText;
+                    let endValue;
+
+                    // Estrai il valore numerico
+                    if (value.includes('K+')) {
+                        endValue = parseFloat(value) * 1000;
+                    } else if (value.includes('+')) {
+                        endValue = parseFloat(value);
+                    } else {
+                        endValue = parseFloat(value);
+                    }
+
+                    // Salva il formato originale
+                    const format = value.replace(/[\d.]/g, '');
+
+                    // Animazione di conteggio
+                    let startValue = 0;
+                    let duration = 2000;
+                    let increment = endValue / (duration / 16);
+
+                    const updateCounter = () => {
+                        startValue += increment;
+
+                        if (startValue < endValue) {
+                            // Formatta il numero in base al formato originale
+                            if (format.includes('K+')) {
+                                counter.innerText = (startValue / 1000).toFixed(1) + 'K+';
+                            } else if (format.includes('+')) {
+                                counter.innerText = Math.floor(startValue) + '+';
+                            } else {
+                                counter.innerText = startValue.toFixed(1);
+                            }
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = value; // Ripristina il valore originale
+                        }
+                    };
+
+                    updateCounter();
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const counterSection = document.querySelector('.counter-card').closest('.container');
+    if (counterSection) {
+        counterObserver.observe(counterSection);
     }
 });

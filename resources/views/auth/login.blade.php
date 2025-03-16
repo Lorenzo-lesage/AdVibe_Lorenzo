@@ -13,7 +13,7 @@
         <div class="row justify-content-center align-items-center height-custom">
             <div class="col-12 col-lg-6">
                 <form method="POST" action="{{ route('login') }}"
-                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5 bg-card">
+                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5 bg-2-op">
                     @csrf
                     <!-- EMAIL -->
                     <div class="mb-3">
@@ -21,7 +21,7 @@
                         <input type="email" class="form-control @error('email') is-invalid @enderror" id="loginEmail"
                             name="email" value="{{ old('email') }}">
                         @error('email')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -30,10 +30,10 @@
                     <!-- PASSWORD -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password:</label>
-                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                        <input type="password" class="form-control  @error('password') is-invalid @enderror"
                             id="password" name="password">
                         @error('password')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -41,12 +41,12 @@
 
                     <!-- BOTTONE LOGIN -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-custom">Accedi</button>
+                        <button type="submit" class="btn btn-form fw-bold">Accedi</button>
                     </div>
 
                     <!-- LINK REGISTRAZIONE -->
                     <p class="mt-3">Non hai un account?
-                        <a href="{{ route('register') }}" class="fw-bold text-color-5">
+                        <a href="{{ route('register') }}" class="fw-bold text-gradient-title bg-2-op px-2 py-1 rounded">
                             Registrati
                         </a>
                     </p>

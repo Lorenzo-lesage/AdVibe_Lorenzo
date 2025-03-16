@@ -1,11 +1,11 @@
 <div>
-    <form class="shadow rounded p-md-5 p-4 pb-md-3 pb-3 mb-lg-0 mb-5 bg-card" wire:submit="store">
+    <form class="shadow rounded p-md-5 p-4 pb-md-3 pb-3 mb-lg-0 mb-5 bg-2-op" wire:submit="store">
         <div class="mb-3">
             <label for="title" class="form-label mb-0">Titolo:</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
                 wire:model.blur="title">
             @error('title')
-                <p class="fst-italic text-danger">
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                     {{ $message }}
                 </p>
             @enderror
@@ -15,7 +15,7 @@
             <textarea id="description" cols="30" rows="2" class="form-control @error('description') is-invalid @enderror"
                 wire:model.blur="description"></textarea>
             @error('description')
-                <p class="fst-italic text-danger">
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                     {{ $message }}
                 </p>
             @enderror
@@ -28,7 +28,7 @@
                 <span class="input-group-text">€</span>
             </div>
             @error('price')
-                <p class="fst-italic text-danger">
+            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                     {{ $message }}
                 </p>
             @enderror
@@ -43,13 +43,13 @@
                 @endforeach
             </select>
             @error('category')
-                <p class="fst-italic text-danger">
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                     {{ $message }}
                 </p>
             @enderror
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-custom">Pubblica annuncio</button>
+            <button type="submit" class="btn btn-form fw-bold">Pubblica annuncio</button>
         </div>
     </form>
 </div>

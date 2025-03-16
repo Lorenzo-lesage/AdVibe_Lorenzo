@@ -11,7 +11,7 @@
         <div class="row justify-content-center align-items-center height-custom">
             <div class="col-12 col-lg-6">
                 <form method="POST" action="{{ route('register') }}"
-                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5 bg-card">
+                    class="shadow rounded p-md-5 p-3 pb-md-3 pb-3 mb-md-0 mb-5 bg-2-op">
                     @csrf
                     <!-- Nome -->
                     <div class="mb-3">
@@ -19,7 +19,7 @@
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                             name="name" value="{{ old('name') }}">
                         @error('name')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -31,7 +31,7 @@
                         <input type="email" class="form-control @error('email') is-invalid @enderror"
                             id="registerEmail" name="email" value="{{ old('email') }}">
                         @error('email')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -46,7 +46,7 @@
                         <input type="password" class="form-control @error('password') is-invalid @enderror"
                             id="password" name="password">
                         @error('password')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-gradient-title bg-2-op rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -58,7 +58,7 @@
                         <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror"
                             id="password_confirmation" name="password_confirmation">
                         @error('password_confirmation')
-                            <p class="fst-italic text-danger">
+                            <p class="fst-italic text-gradient-title bg-2-op rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -66,7 +66,7 @@
 
                     <!-- Bottone Registrati -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-custom">Registrati</button>
+                        <button type="submit" class="btn btn-form fw-bold">Registrati</button>
                     </div>
                 </form>
             </div>

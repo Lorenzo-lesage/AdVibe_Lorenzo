@@ -10,7 +10,7 @@
                 </h1>
             </div>
         </div>
-        <div class="row justify-content-center align-items-center height-custom mb-5 bg-3-op rounded-bottom-3 shadow px-2 py-5 mx-1">
+        <div class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3 px-2 py-5 mx-1">
             @forelse ($articles as $article)
                 <div class="col-12 col-md-4 justify-content-center d-flex">
                     <x-card :article="$article" />

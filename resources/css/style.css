@@ -4,6 +4,7 @@
     --color-primary-op: rgba(248, 248, 248, 0.442);
     --color-secondary: #001829;
     --color-secondary-op: #00182986;
+    --color-secondary-op-2: #00182944;
     --color-quinary: rgb(244, 105, 93);
     --color-quinary-op: rgba(244, 106, 93, 0.341);
     --color-quinary-op-2: rgba(244, 106, 93, 0.112);
@@ -27,21 +28,12 @@
 }
 
 .text-gradient-title {
-    background: linear-gradient(
-        90deg,
-        var(--color-quinary),
-        var(--color-quinary-op)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-quinary);
+    text-shadow: 2px 2px 4px rgba(114, 13, 13, 0.5);
 }
 
 .text-gradient-title2 {
-    background: linear-gradient(
-        90deg,
-        var(--color-secondary),
-        var(--color-secondary-op)
-    );
+    background: linear-gradient(45deg, var(--color-quinary), var(--color-quinary-op));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -51,33 +43,22 @@
 .bg-1 {
     background-color: var(--color-primary);
 }
-.bg-1-op {
-    background-color: var(--color-primary-op);
-}
 .bg-2 {
     background-color: var(--color-secondary);
 }
 .bg-2-op {
-    background-color: var(--color-secondary-op);
+    background-color: var(--color-secondary-op-2);
 }
 .bg-3 {
     background-color: var(--color-quinary);
 }
-.bg-3-op {
-    background: linear-gradient(to bottom right,
-        var(--color-quinary-op-2) 0%,
-        var(--color-quinary-op) 50%,
-        var(--color-quinary-op-2) 100%);
-        background-attachment: fixed;
-}
 
-.bg-page-form {
+.bg-tot {
     background: linear-gradient(
-            rgb(248, 248, 248, 0.2),
-            rgb(248, 248, 248, 0.5),
-            rgb(248, 248, 248, 1)
+        var(--color-primary-op),
+        var(--color-primary-op)
         ),
-        url("/storage/app/public/media/sfondo1.webp");
+        url("/storage/app/public/media/bg-home.png");
     background-size: cover;
     background-position: bottom;
     background-attachment: fixed;
@@ -110,16 +91,63 @@ body {
     min-height: 60vh;
 }
 
-/* COLORI BOTTONE */
+/* COLORI BOTTONI */
 .btn-custom {
     color: var(--color-quinary) !important;
     border: 1px solid var(--color-quinary) !important;
     transition: all 0.3s ease-in-out !important;
 }
-
 .btn-custom:hover {
     background-color: var(--color-quinary) !important;
     color: var(--color-secondary) !important;
+}
+
+.btn-custom2 {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-quinary) !important;
+    border: 2px solid var(--color-quinary) !important;
+    width: 200px;
+}
+.btn-custom2:hover {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-secondary) !important;
+    border: 2px solid var(--color-secondary) !important;
+}
+
+.btn-form {
+    color: var(--color-secondary) !important;
+    border: 1px solid var(--color-secondary) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.btn-form:hover {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-secondary) !important;
+    border: 1px solid var(--color-quinary) !important;
+}
+
+.btn-number {
+    color: var(--color-secondary) !important;
+    border: 1px solid var(--color-secondary) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.btn-number:hover {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-quinary) !important;
+}
+
+.btn-footer {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-secondary) !important;
+}
+.btn-footer:hover {
+    background-color: var(--color-secondary) !important;
+    color: var(--color-quinary) !important;
+    border-color: var(--color-quinary) !important;
+}
+
+/* ALTRE FUNZIONALITA GENERICHE */
+.is-invalid{
+    border-radius: 7px 7px 0 0 !important;
 }
 
 .border-custom {
@@ -157,10 +185,11 @@ body {
     border-radius: 100px;
     background: linear-gradient(
         90deg,
-        var(--color-secondary-op),
-        var(--color-secondary)
+        var(--color-secondary),
+        var(--color-secondary-op)
     );
 }
+
 /* ----------------------------------------------------------------------------------------------------------- */
 /* COMPONENTE */
 /* CARD */
@@ -206,7 +235,16 @@ body {
     padding: 5px 10px;
     border-radius: 50px;
     color: var(--color-secondary);
+    z-index: 1;
 }
+
+/* CARD IMG */
+.img-card {
+    transition: all 0.2s ease-in-out;
+  }
+  .img-card:hover {
+    transform: scale(1.1);
+  }
 
 /* COMPONENTE */
 /*  PAGINATOR */
@@ -245,7 +283,7 @@ body {
 
 /* COMPONENTE */
 /* CAROSELLO */
-.carousel {
+.carousel-home {
     height: 50vh;
     border-radius: 10px;
 }
@@ -284,7 +322,6 @@ body {
     background-position: center;
 }
 
-
 .carousel-text {
     position: absolute;
     color: var(--color-secondary) !important;
@@ -292,24 +329,15 @@ body {
     left: -300px !important;
 }
 
-
 /* ----------------------------------------------------------------------------------------------------------- */
 /* HOMEPAGE */
 /* HEADER HOME */
-.bg-image {
-    background: linear-gradient(
-            rgb(248, 248, 248, 0.2),
-            rgb(248, 248, 248, 0.5),
-            rgb(248, 248, 248)
-        ),
-        url("/storage/app/public/media/bg-home.png");
-    background-size: cover;
-    background-position: bottom;
-    min-height: 100vh;
-}
-
 .img-header {
     width: 60vw;
+}
+
+.bg-section-home {
+    backdrop-filter: blur(10px);
 }
 
 /* SWIPER */
@@ -340,7 +368,6 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     transition: transform 0.2s ease-in-out;
-    z-index: -1; /* Mantiene il background dietro agli elementi interattivi */
 }
 
 .swiper-slide:hover::before {
@@ -362,7 +389,6 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-
 .category-title h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -376,6 +402,69 @@ body {
     background-color: var(--color-primary-op);
     padding: 30px 30px;
     border-radius: 50px;
+}
+
+.swiper-scrollbar-drag {
+    background-color: var(--color-secondary) !important;
+}
+
+/* WHY ADVIBE HOME */
+/* CARD WHY ADVIBE */
+.card-why-advibe {
+    background-color: var(--color-primary) !important;
+}
+
+.card-why-advibe p {
+    color: var(--color-secondary);
+}
+/* Stile per l'hover sul card-body */
+.card-why-advibe .card-body {
+    transition: all 0.3s ease;
+}
+
+.card-why-advibe:hover .card-body {
+    transform: translateY(-20px); /* Leggero effetto di sollevamento */
+    border-radius: 0.5rem; /* Bordi arrotondati */
+    scale: 0.9;
+}
+
+/* I NOSTRI NUMERI HOME  */
+/* Stile per le card dei contatori */
+.counter-card {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+.counter-card:hover {
+    transform: translateY(-20px);
+}
+
+.counter-value {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.counter-icon {
+    background-color: var(--color-primary-op);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.counter-card:hover .counter-icon {
+    transform: scale(1.1);
+    background-color: var(--color-secondary);
+}
+
+/* RECENSIONI HOME */
+.review-card {
+    background: var(--color-primary);
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */
@@ -512,27 +601,6 @@ body {
 
 .logout-icon:hover {
     color: var(--color-quinary-op-3);
-}
-
-/* ----------------------------------------------------------------------------------------------------------- */
-/* CATEGORY PAGE */
-.text-category-title {
-    background:  var(--color-secondary);
-    -webkit-background-clip: text;
-}
-
-/* ----------------------------------------------------------------------------------------------------------- */
-/* FOOTER */
-.btn-footer {
-    background-color: var(--color-quinary) !important;
-    color: var(--color-secondary) !important;
-    width: 200px;
-}
-
-.btn-footer:hover {
-    background-color: var(--color-secondary) !important;
-    color: var(--color-quinary) !important;
-    border-color: var(--color-quinary) !important;
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */

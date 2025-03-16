@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="bg-1">
+<body class="bg-tot">
     <x-navbar />
 
     <div class="min-vh-md-100">
