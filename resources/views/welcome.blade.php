@@ -77,14 +77,14 @@
         </div>
     </div>
     {{-- ULTIMI ANNUNCI --}}
-    <div class="container my-5">
+    <div class="container mt-5">
         <h2 class="display-5 pt-md-5 mt-5 mb-0 text-title text-gradient-title fw-semibold text-center border-custom">
             Ultimi annunci pubblicati
         </h2>
         <div
             class="row heigh-custom justify-content-center align-items-center bg-3-op text-color-2 rounded-bottom-3 shadow mx-1">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-3 justify-content-center d-flex">
+                <div class="col-12 col-md-3 justify-content-center d-flex mb-5">
                     <x-card :article="$article" />
                 </div>
             @empty
@@ -94,29 +94,28 @@
                     </h3>
                 </div>
             @endforelse
+            <div class="col-12 px-0">
+                <h2
+                    class="display-5 pt-md-5 mt-5 pt-5 mb-0 text-title fw-semibold text-center border-custom2 text-gradient-title2">
+                    Categorie
+                </h2>
+            </div>
         </div>
     </div>
 
     {{-- CATEGORIE --}}
-    </h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2
-                    class="display-5 pt-md-5 mt-5 mb-0 text-title text-gradient-title fw-semibold text-center border-custom">
-                    Categorie
-            </div>
-        </div>
-    </div>
-    <div class="container overflow-hidden mb-5">
-        <div class="row bg-3-op swiper-bg mx-1">
-            <div class="col-12 col-md-4">
+    <div class="container mb-5 pb-5">
+        <div class="row mx-1 position-relative overflow-hidden row-swiper py-5 rounded shadow bg-1-op">
+            <div class="col-12 col-md-4 ">
                 <div class="swiper-container p-5">
                     <div class="swiper-wrapper">
                         @foreach ($categories as $category)
-                            <div class="swiper-slide"
-                                style="background-image: url('{{ asset('images/smartphone.jpg') }}'); background-size: cover; background-position: center;">
-                                <a href="{{ route('byCategory', ['category' => $category]) }}" class="swiper-link">
+                            <div class="swiper-slide rounded shadow"
+                            style="background-image: url('{{ asset('images/drone.jpg') }}');
+
+                                background-size: cover; background-position: center;">
+                                <a href="{{ route('byCategory', ['category' => $category]) }}"
+                                    class="swiper-link rounded shadow">
                                     <div class="category-title">
                                         <h2>{{ $category->name }}</h2>
                                     </div>

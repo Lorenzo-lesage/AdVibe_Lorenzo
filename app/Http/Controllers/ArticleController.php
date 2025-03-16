@@ -37,7 +37,6 @@ class ArticleController extends Controller implements HasMiddleware
     {
         // Array delle immagini per categoria
         $categoryImages = [
-            'Smartphone' => 'images/smartphone.jpg',
             'Tablet' => 'images/tablet.jpg',
             'Smartwatch' => 'images/smartwatch.jpg',
             'Laptop' => 'images/laptop.jpg',
