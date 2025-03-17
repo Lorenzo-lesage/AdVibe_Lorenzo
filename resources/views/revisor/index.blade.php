@@ -1,6 +1,8 @@
 <x-layout>
-
-    <div class="container-fluid pt-5">
+    @push('title')
+        AdVibe-Zona-Revisore
+    @endpush
+    <div class="container-fluid mt-5 pt-5">
         <div class="row">
 
             <div class="col-3">
@@ -15,7 +17,7 @@
                     <div class="col-5 alert alert-success text-center shadow center">
                         {{ session('message') }}
                         <button type="button" class="btn-close position-absolute mt-3 me-3 top-0 end-0"
-                        data-bs-dismiss="alert" aria-label="Close"></button>
+                            data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </div>
             @endif
@@ -29,12 +31,22 @@
                     <div class="row justify-content-center">
 
                         @for ($i = 0; $i < 6; $i++)
-                            <div class="col-6 col-md-4 mb-4 text-center">
-                                <img src="https://picsum.photos/300" class="img-fluid rounded shadow"
+                            <div class="col-6 col-md-4 mb-4 col-img-revisor">
+                                <img src="https://picsum.photos/300" class="img-fluid w-100 rounded img-effect-revisor"
                                     alt="immagine segnaposto">
                             </div>
                         @endfor
-
+                        <div id="imageModal" class="image-modal">
+                            <div class="modal-overlay"></div>
+                            <div class="modal-content">
+                                <img id="modalImage" src="" alt="Immagine ingrandita">
+                                <span class="close-modal">&times;</span>
+                                <button class="nav-btn prev-btn">&lt;</button>
+                                <button class="nav-btn next-btn">&gt;</button>
+                                <div class="image-counter"><span id="currentImageIndex">1</span>/<span
+                                        id="totalImages">6</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
