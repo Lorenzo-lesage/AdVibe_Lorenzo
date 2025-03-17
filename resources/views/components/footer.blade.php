@@ -46,7 +46,7 @@
                         <h5 class="align-content-center m-0 fw-bold fs-5 fs-md-3 text-center">
                             Vuoi diventare un <span class="text-color-5">
                                 AdVibe</span> revisore?</h5>
-                        <a href=""
+                        <a href="{{ route('become.revisor')}}"
                             class="btn btn-footer transition mb-5 mt-3 fw-bold w-sm-none">Invia richiesta</a>
                     </div>
                 </div>

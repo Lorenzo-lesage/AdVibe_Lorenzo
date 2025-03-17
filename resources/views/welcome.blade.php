@@ -5,6 +5,16 @@
 
     <div class="container-fluid vh-100">
         <div class="row mt-5 py-5">
+            @if (session()->has('errorMessage'))
+                <div class="row justify-content-center">
+                    <div class="col-5 alert alert-danger text-center shadow center">
+                        {{ session('message') }}
+                        <button type="button" class="btn-close position-absolute mt-3 me-3 top-0 end-0"
+                            data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            @endif
+            <x-success />
             <div class="col-12 d-flex justify-content-center">
                 <img src="./media/header.png" alt="Logo AdVibe header" class="img-header mt-5">
             </div>
@@ -94,7 +104,8 @@
                     </h3>
                 </div>
             @endforelse
-            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom">
+            <h2
+                class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom">
                 Categorie
             </h2>
         </div>
@@ -223,7 +234,8 @@
                 </div>
             </div>
 
-            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom">
+            <h2
+                class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom">
                 I Nostri Numeri
             </h2>
         </div>
@@ -231,10 +243,10 @@
 
     {{-- I NOSTRI NUMERI --}}
     <div class="container">
-        <div
-            class="row heigh-custom justify-content-center align-items-center bg-section-home text-color-2 mx-1 pt-5">
+        <div class="row heigh-custom justify-content-center align-items-center bg-section-home text-color-2 mx-1 pt-5">
             <div class="col-12 text-center mb-5">
-                <h4 class="fw-semibold fs-3 text-color-2 text-title">AdVibe in crescita costante, grazie alla fiducia dei nostri utenti</h4>
+                <h4 class="fw-semibold fs-3 text-color-2 text-title">AdVibe in crescita costante, grazie alla fiducia
+                    dei nostri utenti</h4>
             </div>
 
             <div class="col-6 col-md-3 mb-4">
@@ -291,7 +303,8 @@
                         <div class="card border-0 shadow rounded bg-1 p-4">
                             @guest
                                 <div class="card-body text-center">
-                                    <h4 class="fw-bold text-title mb-3 text-gradient-title2">Unisciti alla community in crescita</h4>
+                                    <h4 class="fw-bold text-title mb-3 text-gradient-title2">Unisciti alla community in
+                                        crescita</h4>
                                     <p class="mb-4 text-color-2">Entra a far parte della più grande piattaforma italiana di
                                         compravendita di prodotti tecnologici.</p>
                                     <div class="d-flex justify-content-center gap-3">
@@ -305,7 +318,8 @@
                             @auth
                                 <div class="card-body text-center">
                                     <h4 class="fw-bold text-title mb-3 text-gradient-title2">Bentornato su Advibe!</h4>
-                                    <p class="mb-4 text-color-2">Scopri le ultime offerte, pubblica i tuoi annunci o esplora nuovi
+                                    <p class="mb-4 text-color-2">Scopri le ultime offerte, pubblica i tuoi annunci o
+                                        esplora nuovi
                                         prodotti tecnologici.</p>
                                     <div class="d-flex justify-content-center gap-3">
                                         <a href="{{ route('create.article') }}"
@@ -319,35 +333,36 @@
                     </div>
                 </div>
             </div>
-            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2">Cosa dicono i nostri utenti</h2>
+            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2">Cosa dicono
+                i nostri utenti</h2>
         </div>
     </div>
 
     {{-- RECENSIONI --}}
-        <div class="container">
-            <div class="row mb-5 py-5 rounded-bottom-3 bg-section-home mx-1">
-                <div class="col-md-4 my-md-5">
-                    <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
-                        <p class="review-text">"Ottima piattaforma! Ho venduto il mio smartphone in pochi giorni."</p>
-                        <h5 class="fw-bold mt-3">Mario Rossi</h5>
-                        <span class="text-warning">★★★★★</span>
-                    </div>
+    <div class="container">
+        <div class="row mb-5 py-5 rounded-bottom-3 bg-section-home mx-1">
+            <div class="col-md-4 my-md-5">
+                <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
+                    <p class="review-text">"Ottima piattaforma! Ho venduto il mio smartphone in pochi giorni."</p>
+                    <h5 class="fw-bold mt-3">Mario Rossi</h5>
+                    <span class="text-warning">★★★★★</span>
                 </div>
-                <div class="col-md-4 my-md-5">
-                    <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
-                        <p class="review-text">"Servizio eccellente! Ho trovato un laptop perfetto a un prezzo super."</p>
-                        <h5 class="fw-bold mt-3">Giulia Bianchi</h5>
-                        <span class="text-warning">★★★★★</span>
-                    </div>
+            </div>
+            <div class="col-md-4 my-md-5">
+                <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
+                    <p class="review-text">"Servizio eccellente! Ho trovato un laptop perfetto a un prezzo super."</p>
+                    <h5 class="fw-bold mt-3">Giulia Bianchi</h5>
+                    <span class="text-warning">★★★★★</span>
                 </div>
-                <div class="col-md-4 my-md-5">
-                    <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
-                        <p class="review-text">"Consigliatissimo! La community è attiva e le transazioni sono sicure."</p>
-                        <h5 class="fw-bold mt-3">Luca Verdi</h5>
-                        <span class="text-warning">★★★★★</span>
-                    </div>
+            </div>
+            <div class="col-md-4 my-md-5">
+                <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
+                    <p class="review-text">"Consigliatissimo! La community è attiva e le transazioni sono sicure."</p>
+                    <h5 class="fw-bold mt-3">Luca Verdi</h5>
+                    <span class="text-warning">★★★★★</span>
                 </div>
             </div>
         </div>
+    </div>
 
 </x-layout>

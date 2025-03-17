@@ -240,7 +240,7 @@ body {
 
 /* CARD IMG */
 .img-card {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
   }
   .img-card:hover {
     transform: scale(1.1);
@@ -338,6 +338,7 @@ body {
 
 .bg-section-home {
     backdrop-filter: blur(10px);
+    background-color: rgba(252, 250, 250, 0.5);
 }
 
 /* SWIPER */
@@ -529,6 +530,12 @@ body {
     border-radius: 0 0 7px 7px !important;
 }
 
+.mt-custom2 {
+    margin-top: 0px !important;
+    right: -12px !important;
+    border-radius: 0 0 7px 7px !important;
+}
+
 .custom-offcanvas {
     background-color: var(--color-secondary) !important; /* Colore di sfondo personalizzato (arancione) */
     color: var(--color-primary) !important; /* Colore del testo */
@@ -538,6 +545,68 @@ body {
     background-color: var(--color-secondary);
 }
 
+/* NOTIFICA */
+@keyframes vibrateWithPause {
+    0%,
+    20% {
+        transform: translateX(0);
+    } /* Stato iniziale e pausa */
+    30% {
+        transform: translateX(-2px);
+    }
+    40% {
+        transform: translateX(2px);
+    }
+    50% {
+        transform: translateX(-2px);
+    }
+    60% {
+        transform: translateX(2px);
+    }
+    70%,
+    100% {
+        transform: translateX(0);
+    } /* Ritorna in posizione e pausa */
+}
+
+.vibrate {
+    display: inline-block;
+    animation: vibrateWithPause 0.8s infinite;
+    color: var(--color-quinary-op-3) !important;
+    font-weight: bold;
+}
+
+.notifica {
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    background-color: rgba(244, 106, 93, 0.816);
+    color: var(--color-secondary) !important;
+}
+
+.notifica2 {
+    background-color: rgba(244, 106, 93, 0.816);
+    color: var(--color-secondary) !important;
+}
+
+.login-icon {
+    font-size: 1.8rem !important;
+}
+
+.bi-person-circle {
+    font-size: 1.8rem !important;
+}
+
+.logout-icon {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    border: none;
+    background-color: transparent;
+}
+.logout-icon:hover {
+    color: var(--color-quinary);
+    font-weight: bold;
+}
 /* ----------------------------------------------------------------------------------------------------------- */
 /* NAVBAR RESPONSIVE */
 .custom-offcanvas {
@@ -584,23 +653,6 @@ body {
 
 #searchIcon {
     border: none;
-}
-
-/* BTN LOGOUT CELLULARE */
-.logout-container {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
-
-.logout-icon {
-    font-size: 1.8rem;
-    color: var(--color-quinary);
-    transition: color 0.3s ease-in-out;
-}
-
-.logout-icon:hover {
-    color: var(--color-quinary-op-3);
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */

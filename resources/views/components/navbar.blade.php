@@ -1,81 +1,3 @@
-{{-- {{-- <nav class="navbar navbar-expand-lg border-bottom border-body bg-2 fixed-top transition" data-bs-theme="dark"
-    id="navbar">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <a class="navbar-brand" href="{{ route('homepage') }}">
-            <img class="logo transition" src="{{ asset('./media/logo.png') }}" alt="Logo Navbar">
-        </a>
-
-        <!-- Bottone per aprire il menu laterale -->
-        <button class="navbar-toggler border-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="bi bi-gear-fill" id="settings"></i></span>
-        </button>
-
-        <!-- Offcanvas (menu laterale) con larghezza ridotta -->
-        <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="navbarNav"
-            aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title text-color-1" id="offcanvasNavbarLabel">Menù</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi" id="settings2">
-                </button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
-                            aria-current="page" href="{{ route('homepage') }}">Home</a>
-                    </li>
-                </ul>
-                @guest
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
-                                href="{{ route('login') }}">Accedi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'register' ? 'active' : '' }}"
-                                href="{{ route('register') }}">Registrati</a>
-                        </li>
-                    </ul>
-                @endguest
-                @auth
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Ciao, {{ ucfirst(Auth::user()->name) }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition" id="dropdown-user">
-                                <li>
-                                    <a class="dropdown-item {{ Route::currentRouteName() == 'create.article' ? 'active' : '' }}" href="{{ route('create.article') }}">
-                                        Pubblica annuncio
-                                        </a>
-                                    </li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li class="d-flex justify-content-center">
-                                    <div class="btn btn-danger btn-sm p-0 w-100 mx-2 mt-2">
-                                        <a class="dropdown-item text-color-2 logout-link transition" href="#"
-                                            onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
-                                            Logout
-                                        </a>
-                                    </div>
-                                </li>
-                                <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">
-                                    @csrf
-                                </form>
-                            </ul>
-                        </li>
-                    @endauth
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav> --}}
-
 <nav class="navbar navbar-expand-lg border-bottom border-body bg-2 fixed-top transition" data-bs-theme="dark"
     id="navbar">
     <div class="container-fluid d-flex justify-content-start">
@@ -109,7 +31,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi"
                     id="settings2"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body d-lg-flex align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
@@ -138,50 +60,75 @@
                 @guest
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
-                                href="{{ route('login') }}">Accedi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'register' ? 'active' : '' }}"
-                                href="{{ route('register') }}">Registrati</a>
+                            <a class="nav-link text-color-1 login-icon {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
+                                href="{{ route('login') }}">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                            </a>
                         </li>
                     </ul>
                 @endguest
                 @auth
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Ciao, {{ ucfirst(Auth::user()->name) }}
+                            <a class="nav-link dropdown-toggle d-flex align-items-center position-relative" href="#"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{-- Ciao, {{ ucfirst(Auth::user()->name) }} --}}
+                                <i class="bi bi-person-circle"></i>
+                                @if (App\Models\Article::toBeRevisedCount() > 0)
+                                    @if (Auth::user()->is_revisor)
+                                        <span class="notifica translate-middle badge rounded-pill">
+                                            {{ \App\Models\Article::toBeRevisedCount() > 0 }}
+                                        </span>
+                                    @endif
+                                @endif
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition"
+                            <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition  mt-custom2"
                                 id="dropdown-user">
-                                <li><a class="dropdown-item {{ Route::currentRouteName() == 'create.article' ? 'active' : '' }}"
-                                        href="{{ route('create.article') }}">Pubblica annuncio</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                @if (Auth::user()->is_revisor)
+                                    <li>
+                                        <a class="dropdown-item {{ Route::currentRouteName() == 'revisor.index' ? 'active' : '' }} position-relative @if (App\Models\Article::toBeRevisedCount() > 0) vibrate @endif"
+                                            href="{{ route('revisor.index') }}">Zona revisore
+                                            @if (App\Models\Article::toBeRevisedCount() > 0)
+                                                <span
+                                                    class="position-absolute top-0 start-0 translate-middle badge rounded-pill notifica2">
+                                                    {{ \App\Models\Article::toBeRevisedCount() > 0 }}
+                                                </span>
+                                            @endif
+                                        </a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <a class="dropdown-item {{ Route::currentRouteName() == 'create.article' ? 'active' : '' }}"
+                                        href="{{ route('create.article') }}">Pubblica annuncio
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">Another action
+                                    </a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li class="d-flex justify-content-center">
-                                    <div class="btn btn-danger btn-sm p-0 w-100 mx-2 mt-2 d-none d-lg-block">
-                                        <a class="dropdown-item text-color-2 logout-link transition" href="#"
-                                            onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a>
-                                    </div>
+                                <li class="d-none d-lg-block">
+                                    <form id="form-logout" class="ps-2" action="{{ route('logout') }}" method="POST"
+                                        onsubmit="return confirm('Sei sicuro di voler fare logout?');">
+                                        @csrf
+                                        <button class="logout-icon transition" type="submit">
+                                            <i class="bi bi-box-arrow-right"></i>
+                                        </button>
+                                    </form>
                                 </li>
-                                <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">
-                                    @csrf
-                                </form>
                             </ul>
                         </li>
-                        <li class="logout-container d-flex justify-content-end d-block d-lg-none">
-                            <a class="logout-icon transition" href="#"
-                                onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
-                                <i class="bi bi-box-arrow-right"></i>
-                            </a>
+                        <li class="d-block d-lg-none">
+                            <form id="form-logout" action="{{ route('logout') }}" method="POST"
+                                onsubmit="return confirm('Sei sicuro di voler fare logout?');">
+                                @csrf
+                                <button class="logout-icon transition" type="submit">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                </button>
+                            </form>
                         </li>
-                        <form action="{{ route('logout') }}" method="post" class="d-none" id="form-logout">
-                            @csrf
-                        </form>
                     </ul>
                 @endauth
             </div>
