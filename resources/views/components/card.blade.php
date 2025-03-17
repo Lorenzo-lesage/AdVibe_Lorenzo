@@ -1,4 +1,4 @@
-    <div class="card my-3 rounded shadow bg-1 text-color-2 border-0 card-container">
+    <div class="card my-3 text-color-2 border-0 card-container">
         <div class="card-body bg-card rounded shadow p-0">
             <div class="bg-none d-flex justify-content-center p-2 position-relative overflow-hidden">
                 <p class="card-text fw-bold card-price">€ {{ $article->price }}</p>

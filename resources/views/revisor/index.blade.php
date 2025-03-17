@@ -5,9 +5,9 @@
     <div class="container-fluid mt-5 pt-5">
         <div class="row">
 
-            <div class="col-3">
+            <div class="col-12 col-md-4">
                 <div class="rounded shadow bg-body-secondary">
-                    <h1 class="display-5 text-center pb-2">
+                    <h1 class="display-5 text-center p-2">
                         Revisor dashboard
                     </h1>
                 </div>
@@ -52,10 +52,12 @@
 
                 <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
                     <div>
-                        <h1>{{ $article_to_check->title }}</h1>
-                        <h3>Autore: {{ $article_to_check->user->name }}</h3>
-                        <h4>{{ $article_to_check->price }} €</h4>
-                        <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
+                        <h1 class="fw-semibold border-revisore-title my-5 my-md-0">{{ $article_to_check->title }}</h1>
+                        <h3 class="border-revisore-seller text-center mt-5">Autore: {{ $article_to_check->user->name }}</h3>
+                        <div class="d-flex justify-content-between my-lg-5 my-4">
+                            <h4>{{ $article_to_check->price }} €</h4>
+                            <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
+                        </div>
                         <p class="h6">{{ $article_to_check->description }}</p>
                     </div>
 
