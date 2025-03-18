@@ -57,8 +57,10 @@ document.body.addEventListener("click", (e) => {
 // ------------------------------------------------------------------------------------------------
 // SEARCHBAR
 const searchIcon = document.querySelector("#searchIcon");
+const searchIconInner = searchIcon.querySelector("i");
 const searchBar = document.querySelector("#searchBar");
 const logo = document.querySelector(".navbar-brand");
+const btnSettings = document.querySelector('#btn-settings');
 
 // Funzione per controllare se siamo su mobile
 function isMobile() {
@@ -69,10 +71,22 @@ function isMobile() {
 searchIcon.addEventListener("click", (e) => {
     e.stopPropagation(); // Evita la chiusura immediata
 
+    // Toggle icon between magnifying glass and left arrow
+    if (!searchBar.classList.contains("d-none")) {
+        // Se la barra di ricerca è visibile e stiamo per nasconderla
+        searchIconInner.classList.remove("bi-arrow-left");
+        searchIconInner.classList.add("bi-search");
+    } else {
+        // Se la barra di ricerca è nascosta e stiamo per mostrarla
+        searchIconInner.classList.remove("bi-search");
+        searchIconInner.classList.add("bi-arrow-left");
+    }
+
     searchBar.classList.toggle("d-none"); // Mostra/nasconde la barra
 
     if (isMobile()) {
         logo.classList.toggle("logo-hidden"); // Nasconde il logo SOLO su mobile
+        btnSettings.classList.toggle("logo-hidden");
     }
 });
 
@@ -86,9 +100,9 @@ document.body.addEventListener("click", (e) => {
     ) {
         searchBar.classList.add("d-none"); // Nasconde la barra
 
-        if (isMobile()) {
-            logo.classList.remove("logo-hidden"); // Riappare il logo SOLO su mobile
-        }
+        // Change icon back to magnifying glass
+        searchIconInner.classList.remove("bi-arrow-left");
+        searchIconInner.classList.add("bi-search");
     }
 });
 

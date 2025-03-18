@@ -5,7 +5,10 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
 
+// ROTTA HOMEPAGE
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
+// ROTTA RICERCA ARTICOLI
+Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('search.article');
 
 // ROTTA ARTICOLI
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');

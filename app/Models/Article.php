@@ -3,15 +3,19 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\Article;
 use App\Models\Category;
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Article;
 
 class Article extends Model
 {
+    use Searchable;
+
     use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
@@ -44,6 +48,17 @@ class Article extends Model
     public static function toBeRevisedCount()
     {
         return Article::where('is_accepted', null)->count();
+    }
+
+    // LOGICA PER RICERCA ARTICOLO
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'category' => $this->category
+        ];
     }
 }
 

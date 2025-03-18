@@ -3,8 +3,8 @@
     <div class="container-fluid d-flex justify-content-start">
         <!-- Bottone per aprire il menu laterale -->
         <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span><i class="bi bi-gear-fill" id="settings" data-bs-toggle="offcanvas"
+            aria-label="Toggle navigation" id="btn-settings">
+            <span><i class="bi bi-list" id="settings" data-bs-toggle="offcanvas"
                     data-bs-target="#navbarNav"></i></span>
         </button>
 
@@ -13,10 +13,17 @@
             <i class="bi bi-search"></i>
         </button>
 
-        <!-- Barra di ricerca -->
-        <div id="searchBar" class="d-none">
-            <input type="text" id="searchInput" placeholder="Cerca..." class="form-control w-auto me-auto">
-        </div>
+        <li class="d-flex align-items-center">
+            <form action="{{ route('search.article') }}" class="d-none" role="search" method="GET" id="searchBar">
+                <div class="input-group">
+                    <input type="search" name="query" class="form-control input-search-navbar"
+                        placeholder="Search..." aria-lable="search" id="searchInput">
+                    <button type="submit" class="input-group-text btn btn-footer" id="basic-addon2">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+        </li>
 
         <!-- Logo -->
         <a class="navbar-brand" href="{{ route('homepage') }}">
@@ -27,16 +34,13 @@
         <div class="offcanvas offcanvas-start custom-offcanvas" tabindex="-1" id="navbarNav"
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title text-color-1" id="offcanvasNavbarLabel">Menù</h5>
+                <a class="nav-link text-color-1 offcanvas-title {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
+                href="{{ route('homepage') }}" id="offcanvasNavbarLabel">Menù</a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi"
                     id="settings2"></button>
             </div>
             <div class="offcanvas-body d-lg-flex align-items-center">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
-                            href="{{ route('homepage') }}">Home</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'index.article' ? 'active' : '' }}"
                             href="{{ route('index.article') }}">Catalogo</a>
@@ -57,18 +61,28 @@
                         </ul>
                     </li>
                 </ul>
-                @guest
-                    <ul class="navbar-nav ms-auto">
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="d-flex align-items-center">
+                        <form action="{{ route('search.article') }}" class="d-none d-lg-block" role="search" method="GET">
+                            <div class="input-group">
+                                <input type="search" name="query" class="form-control input-search-navbar"
+                                    placeholder="Search..." aria-lable="search">
+                                <button type="submit" class="input-group-text btn btn-footer" id="basic-addon2">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </li>
+                    @guest
                         <li class="nav-item">
                             <a class="nav-link text-color-1 login-icon {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
                                 href="{{ route('login') }}">
                                 <i class="bi bi-box-arrow-in-right"></i>
                             </a>
                         </li>
-                    </ul>
-                @endguest
-                @auth
-                    <ul class="navbar-nav ms-auto">
+                    @endguest
+                    @auth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center position-relative" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -77,7 +91,7 @@
                                 @if (App\Models\Article::toBeRevisedCount() > 0)
                                     @if (Auth::user()->is_revisor)
                                         <span class="notifica translate-middle badge rounded-pill">
-                                            {{ \App\Models\Article::toBeRevisedCount() > 0 }}
+                                            {{ \App\Models\Article::toBeRevisedCount() }}
                                         </span>
                                     @endif
                                 @endif
@@ -91,7 +105,7 @@
                                             @if (App\Models\Article::toBeRevisedCount() > 0)
                                                 <span
                                                     class="position-absolute top-0 start-0 translate-middle badge rounded-pill notifica2">
-                                                    {{ \App\Models\Article::toBeRevisedCount() > 0 }}
+                                                    {{ \App\Models\Article::toBeRevisedCount() }}
                                                 </span>
                                             @endif
                                         </a>
@@ -129,8 +143,8 @@
                                 </button>
                             </form>
                         </li>
-                    </ul>
-                @endauth
+                    @endauth
+                </ul>
             </div>
         </div>
     </div>

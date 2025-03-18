@@ -25,9 +25,9 @@
 
         @if ($article_to_check)
 
-            <div class="row justify-content-center pt-5">
+            <div class="row justify-content-evenly pt-5">
 
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="row justify-content-center">
 
                         @for ($i = 0; $i < 6; $i++)
@@ -52,13 +52,13 @@
 
                 <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
                     <div>
-                        <h1 class="fw-semibold border-revisore-title my-5 my-md-0">{{ $article_to_check->title }}</h1>
+                        <h1 class="fw-semibold border-revisore-title my-5 my-md-0 text-break">{{ $article_to_check->title }}</h1>
                         <h3 class="border-revisore-seller text-center mt-5">Autore: {{ $article_to_check->user->name }}</h3>
                         <div class="d-flex justify-content-between my-lg-5 my-4">
                             <h4>{{ $article_to_check->price }} €</h4>
                             <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
                         </div>
-                        <p class="h6">{{ $article_to_check->description }}</p>
+                        <p class="text-break">{{ $article_to_check->description }}</p>
                     </div>
 
                     <div class="d-flex pb-4 justify-content-around">

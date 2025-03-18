@@ -293,7 +293,7 @@ body {
         to bottom,
         var(--color-quinary-op),
         var(--color-quinary-op)
-    ), url("/storage/app/public/media/carosello2.jpg");
+    ), url("/storage/app/public/media/slide1.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -305,7 +305,7 @@ body {
         to bottom,
         var(--color-quinary-op),
         var(--color-quinary-op)
-    ), url("/storage/app/public/media/carosello1.jpg");
+    ), url("/storage/app/public/media/slide12.jpg");
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -316,7 +316,7 @@ body {
         to bottom,
         var(--color-quinary-op),
         var(--color-quinary-op)
-    ), url("/storage/app/public/media/carosello3.jpg");
+    ), url("/storage/app/public/media/slide3.jpg");
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -326,7 +326,7 @@ body {
     position: absolute;
     color: var(--color-secondary) !important;
     top: 20px !important;
-    left: -300px !important;
+    left: -150px !important;
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */
@@ -337,8 +337,7 @@ body {
 }
 
 .bg-section-home {
-    backdrop-filter: blur(10px);
-    background-color: rgba(252, 250, 250, 0.5);
+    backdrop-filter: blur(2px);
 }
 
 /* SWIPER */
@@ -607,6 +606,11 @@ body {
     color: var(--color-quinary);
     font-weight: bold;
 }
+
+.input-search-navbar {
+    background-color: transparent !important;
+    border: 1px solid var(--color-quinary) !important;
+}
 /* ----------------------------------------------------------------------------------------------------------- */
 /* NAVBAR RESPONSIVE */
 .custom-offcanvas {
@@ -625,31 +629,6 @@ body {
 }
 
 /* Stile per la barra di ricerca */
-#searchBar {
-    background-color: #eae4e4;  /* Colore di sfondo */
-    border-radius: 20px;         /* Angoli arrotondati */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* Ombra leggera */
-}
-
-/* Stile per il campo di input */
-#searchInput {
-    background-color: var(--color-secondary);      /* Colore di sfondo del campo di input */
-    color: var(--color-primary);                 /* Colore del testo */
-    border: 2px solid var(--color-primary);      /* Bordo grigio chiaro */
-    border-radius: 20px;
-    transition: border-color 0.3s ease;  /* Animazione per il cambio del bordo */
-}
-
-/* Cambia il bordo quando il campo di input è in focus */
-#searchInput:focus {
-    border-color: var(--color-quinary); /* Colore del bordo quando il campo è attivo */
-    outline: none;         /* Rimuove l'outline di default */
-}
-
-#searchInput::placeholder {
-    color: var(--color-primary); /* Colore desiderato per il placeholder */
-    opacity: 0.8; /* Opacità, se vuoi che sia visibile */
-}
 
 #searchIcon {
     border: none;
