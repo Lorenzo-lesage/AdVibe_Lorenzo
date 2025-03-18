@@ -24,7 +24,7 @@
             @endforelse
         </div>
         <div class="d-flex justify-content-center mb-4">
-            <div class="custom-pagination"">
+            <div class="custom-pagination">
                 {{ $articles->links() }}
             </div>
         </div>

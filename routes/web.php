@@ -9,6 +9,8 @@ use App\Http\Controllers\RevisorController;
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 // ROTTA RICERCA ARTICOLI
 Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('search.article');
+// ROTTA PER CAMBIARE LINGUA
+Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
 
 // ROTTA ARTICOLI
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');

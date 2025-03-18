@@ -5,8 +5,13 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">Articoli della categoria "<span
-                        class="fst-italic fw-bold text-color-2">{{ $category->name }}</span>"</h1>
+                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">
+                    Articoli della categoria "
+                    <span class="fst-italic fw-bold text-color-2">
+                        {{ $category->name }}
+                    </span>
+                    "
+                </h1>
             </div>
         </div>
         <div class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3  px-2 py-5 mx-1">

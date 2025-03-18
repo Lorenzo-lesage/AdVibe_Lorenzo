@@ -26,9 +26,9 @@
                                     class="text-color-5">{{ ucfirst(auth()->user()->name) }}</span>,
                                 clicca qua sotto per iniziare a vendere!</h3>
                         </div>
-                        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                        <div class="col-10 col-md-6 col-lg-4 d-flex justify-content-center">
                             <a href="{{ route('create.article') }}"
-                                class="btn btn-lg btn-custom2 transition mt-5 py-3 text-center fw-semibold fs-4 w-auto">Pubblica
+                                class="btn btn-lg btn-custom2  mt-5 py-3 text-center fw-semibold fs-4">Pubblica
                                 un annuncio</a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
     <div class="container-fluid d-none d-lg-block">
         <div class="row height-custom">
             <div class="col-12">
-                <div id="carouselExample" class="carousel  slide" data-bs-ride="carousel" data-bs-pause="false"
+                <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false"
                     data-bd-interval="4000" data-aos="fade-down">
                     <div class="carousel-inner carousel carousel-home rounded shadow">
                         <div class="carousel-item active carousel1 position-relative">

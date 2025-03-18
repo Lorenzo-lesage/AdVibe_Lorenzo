@@ -13,6 +13,7 @@ class PublicController extends Controller
         return view('welcome', compact('articles'));
     }
 
+    // FUNZIONE PER RICERCA PARZIALE ARTICOLI
     public function searchArticles(Request $request)
     {
         $query = $request->input('query');
@@ -28,5 +29,12 @@ class PublicController extends Controller
             ->paginate(8);
 
         return view('article.searched', ['articles' => $articles, 'query' => $query]);
+    }
+
+    // FUNZIONE PER LINGUE
+    public function setLanguage($lang)
+    {
+        session()->put('locale', $lang);
+        return redirect()->back();
     }
 }

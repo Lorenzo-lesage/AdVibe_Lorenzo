@@ -18,7 +18,8 @@
                 <div class="input-group">
                     <input type="search" name="query" class="form-control input-search-navbar"
                         placeholder="Search..." aria-lable="search" id="searchInput">
-                    <button type="submit" class="input-group-text btn btn-footer" id="basic-addon2">
+                    <button type="submit" class="input-group-text btn btn-footer btn-input-search-bar"
+                        id="basic-addon2">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
@@ -35,7 +36,7 @@
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <a class="nav-link text-color-1 offcanvas-title {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
-                href="{{ route('homepage') }}" id="offcanvasNavbarLabel">Menù</a>
+                    href="{{ route('homepage') }}" id="offcanvasNavbarLabel">Menù</a>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi"
                     id="settings2"></button>
             </div>
@@ -62,22 +63,75 @@
                     </li>
                 </ul>
 
+                {{-- PARTE DESTRA NAVBAR --}}
                 <ul class="navbar-nav ms-auto">
+                    @php
+                        $currentLang = session('locale', 'it'); // Lingua corrente (default: IT)
+                        $languages = [
+                            'it' => 'Italiano',
+                            'en' => 'English',
+                            'es' => 'Español',
+                            'fr' => 'Français',
+                            'de' => 'Deutsch',
+                            'pt' => 'Português',
+                            'ru' => 'Русский',
+                            'zh' => '中文',
+                            'ja' => '日本語',
+                            'ar' => 'العربية',
+                            'hi' => 'हिन्दी',
+                            'nl' => 'Nederlands',
+                            'sv' => 'Svenska',
+                            'pl' => 'Polski',
+                            'ko' => '한국어',
+                            'tr' => 'Türkçe',
+                        ];
+                    @endphp
+                    <li class="dropdown d-flex align-items-center">
+                        <a class="nav-link dropdown-toggle position-relative" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="languageDropdown">
+                            <img src="{{ asset('vendor/blade-flags/language-' . $currentLang . '.svg') }}"
+                                width="25" height="25" />
+                        </a>
+                        <ul class="dropdown-menu transition mt-custom3" id="dropdown-language"
+                            aria-labelledby="languageDropdown">
+                            @foreach ($languages as $lang => $name)
+                                @if ($lang !== $currentLang)
+                                    <!-- Evita di ripetere la lingua attuale -->
+                                    <li>
+                                        <form action="{{ route('setLocale', $lang) }}" method="POST"
+                                            class="d-flex align-items-center">
+                                            @csrf
+                                            <button type="submit"
+                                                class="dropdown-item d-flex align-items-center transition">
+                                                <img src="{{ asset('vendor/blade-flags/language-' . $lang . '.svg') }}"
+                                                    width="24" height="24" class="me-2" />
+                                                <span
+                                                    class="text-color-1 dropdown-item-language transition dropdown-item">{{ $name }}</span>
+                                            </button>
+                                        </form>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </li>
                     <li class="d-flex align-items-center">
-                        <form action="{{ route('search.article') }}" class="d-none d-lg-block" role="search" method="GET">
+                        <form action="{{ route('search.article') }}" class="d-none d-lg-block mx-2" role="search"
+                            method="GET">
                             <div class="input-group">
                                 <input type="search" name="query" class="form-control input-search-navbar"
                                     placeholder="Search..." aria-lable="search">
-                                <button type="submit" class="input-group-text btn btn-footer" id="basic-addon2">
+                                <button type="submit" class="input-group-text btn btn-footer btn-input-search-bar"
+                                    id="basic-addon2">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </div>
                         </form>
                     </li>
                     @guest
-                        <li class="nav-item">
+                        <li class="nav-item d-flex align-items-center ms-lg-2">
                             <a class="nav-link text-color-1 login-icon {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
                                 href="{{ route('login') }}">
+                                Accedi
                                 <i class="bi bi-box-arrow-in-right"></i>
                             </a>
                         </li>
@@ -128,7 +182,7 @@
                                         onsubmit="return confirm('Sei sicuro di voler fare logout?');">
                                         @csrf
                                         <button class="logout-icon transition" type="submit">
-                                            <i class="bi bi-box-arrow-right"></i>
+                                            Logout <i class="bi bi-box-arrow-right"></i>
                                         </button>
                                     </form>
                                 </li>
@@ -139,7 +193,7 @@
                                 onsubmit="return confirm('Sei sicuro di voler fare logout?');">
                                 @csrf
                                 <button class="logout-icon transition" type="submit">
-                                    <i class="bi bi-box-arrow-right"></i>
+                                    Logout <i class="bi bi-box-arrow-right"></i>
                                 </button>
                             </form>
                         </li>
