@@ -103,17 +103,16 @@ body {
 }
 
 .btn-custom2 {
-    border: 4px solid var(--color-secondary) !important;
+    border: 2px solid var(--color-secondary) !important;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px rgb(6, 0, 0);
-    transition: all 0.5s ease-in-out !important;
+    box-shadow: 3px 3px 5px rgb(6, 0, 0);
+    transition: all 0.3s ease-in-out !important;
 }
 .btn-custom2:hover {
-    box-shadow: 2px 2px 5px rgba(6, 0, 0, 0.7), inset 0px 0px 10px rgba(6, 0, 0, 0.9);
+    box-shadow: 0px 0px 0px rgba(6, 0, 0, 0.7), inset 3px 3px 5px rgba(6, 0, 0, 0.9);
     color: var(--color-quinary) !important;
     text-shadow: 0px 0px 10px var(--color-primary-op);
-    background-color: var(--color-secondary) !important;
-    border: 4px solid var(--color-quinary) !important;
+    border: 2px solid var(--color-quinary) !important;
 }
 
 .btn-form {
@@ -196,7 +195,7 @@ body {
 /* COMPONENTE */
 /* CARD */
 .card-container {
-    max-width: 19rem;
+    width: 17rem;
 }
 .w-custom {
     width: 90%;
@@ -243,9 +242,30 @@ body {
 /* CARD IMG */
 .img-card {
     transition: all 0.3s ease-in-out;
+    height: 250px;
+    object-fit: contain;
   }
   .img-card:hover {
     transform: scale(1.1);
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0); /* Sfondo nero semi-trasparente */
+      border-radius: 50%; /* Rende lo sfondo rotondo */
+      padding: 15px; /* Spazio attorno all'icona */
+      width: 50px; /* Larghezza */
+      height: 50px; /* Altezza */
+      display: flex; /* Per centrare l'icona */
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease; /* Animazione al passaggio */
+  }
+
+  /* Cambia colore al passaggio */
+  .carousel-control-prev-icon:hover,
+  .carousel-control-next-icon:hover {
+      background-color: rgba(0, 0, 0, 0.7);
   }
 
 /* COMPONENTE */
@@ -519,16 +539,6 @@ body {
     border-radius: 0 0 7px 7px !important;
 }
 
-.mt-custom2 {
-    margin-top: 0px !important;
-    right: -12px !important;
-    border-radius: 0 0 7px 7px !important;
-}
-
-.mt-custom3 {
-    margin-top: -1px !important;
-    border-radius: 0 0 7px 7px !important;
-}
 .custom-offcanvas {
     background-color: var(--color-secondary) !important; /* Colore di sfondo personalizzato (arancione) */
     color: var(--color-primary) !important; /* Colore del testo */
@@ -571,8 +581,8 @@ body {
 
 .notifica {
     position: absolute;
-    top: 15px;
-    right: -5px;
+    top: 7px;
+    right: -10px;
     background-color: rgba(244, 106, 93, 0.816);
     color: var(--color-secondary) !important;
 }
@@ -670,7 +680,7 @@ body {
   }
 
   .img-effect-revisor:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
 
   /* Stile per il modal */
@@ -766,6 +776,43 @@ body {
   }
 
 /* ----------------------------------------------------------------------------------------------------------- */
+/* DETTAGLIO ARTICOLO */
+.layout-container {
+    margin: 0 auto;
+    columns: 3 100px;
+    column-gap: 0.5em;
+}
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* PGAGINA FORM ARTICOLO */
+.img-preview {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+}
+
+.btn-delete-img {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
+    border: 2px solid var(--color-quinary) !important;
+    border-radius: 50% !important;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-delete-img:hover {
+    background-color: var(--color-quinary) !important;
+    color: var(--color-primary) !important;
+    border: 2px solid var(--color-secondary) !important;
+}
+/* ----------------------------------------------------------------------------------------------------------- */
 /* MEDIA QUERIES */
 
 /* Applicare la classe nav-scrolled solo su schermi di larghezza >= 992px (desktop) */
@@ -822,8 +869,14 @@ body {
     right: -60px;
     }
 
-
 }
+
+@media (min-width: 992px) { /* lg in Bootstrap */
+    .vh-lg-100 {
+        height: 100vh;
+    }
+}
+
 
 @media (max-width: 768px) {
     .logo-hidden {

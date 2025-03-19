@@ -28,11 +28,12 @@
                 <span class="input-group-text">€</span>
             </div>
             @error('price')
-            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                     {{ $message }}
                 </p>
             @enderror
         </div>
+        {{-- IMMAGINI --}}
         <div class="mb-3">
             <label for="category" class="form-label mb-0">Categoria:</label>
             <select id="category" wire:model.blur="category"
@@ -48,9 +49,45 @@
                 </p>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="temporary_images"
+                class="form-label w-100 d-flex justify-content-between align-items-center m-0">
+                Immagine: <span class="fst-italic text-muted">max: 10 img</span>
+            </label>
+            <input type="file" wire:model.live="temporary_images" multiple
+                class="form-control shadow @error('temporary_images.*') is-invalid @enderror" placeholder="Img" />
+            @error('temporary_images.*')
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
+                    {{ $message }}
+                </p>
+            @enderror
+            @error('temporary_images')
+                <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
+                    {{ $message }}
+                </p>
+            @enderror
+        </div>
+        @if (!empty($images))
+            <div class="row">
+                <div class="col-12">
+                    <p>Photo</p>
+                    <div class="row border-preview-custom roundedpy-4">
+                        @foreach ($images as $key => $image)
+                            <div class="col d-flex flex-column align-items-center my-3">
+                                <div class="img-preview mx-auto shadow rounded position-relative"
+                                    style="background-image: url({{ $image->temporaryUrl() }});">
+                                    <button type="button" class="btn mt-1 btn-delete-img d-flex align-items-center justify-content-center"
+                                        wire:click="removeImage({{ $key }})">X</button>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+        {{-- button submit --}}
         <div class="d-flex justify-content-center">
             <button type="submit" class="btn btn-form fw-bold">Pubblica annuncio</button>
         </div>
     </form>
 </div>
-

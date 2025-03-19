@@ -27,15 +27,24 @@
 
             <div class="row justify-content-evenly pt-5">
 
-                <div class="col-md-6">
-                    <div class="row justify-content-center">
-
-                        @for ($i = 0; $i < 6; $i++)
-                            <div class="col-6 col-md-4 mb-4 col-img-revisor">
-                                <img src="https://picsum.photos/300" class="img-fluid w-100 rounded img-effect-revisor"
-                                    alt="immagine segnaposto">
-                            </div>
-                        @endfor
+                <div class="col-md-6 shadow my-5 p-2 rounded">
+                    <div class="layout-container ">
+                        @if ($article_to_check->images->count())
+                            @foreach ($article_to_check->images as $key => $image)
+                                <div class="overflow-hidden">
+                                    <img src="{{ Storage::url($image->path) }}"
+                                        alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'"
+                                        class="w-100 rounded img-effect-revisor d-block mb-1">
+                                </div>
+                            @endforeach
+                        @else
+                            @for ($i = 0; $i < 6; $i++)
+                                <div class="overflow-hidden">
+                                    <img src="https://picsum.photos/300"
+                                        class="w-100 rounded img-effect-revisor d-block mb-1" alt="immagine segnaposto">
+                                </div>
+                            @endfor
+                        @endif
                         <div id="imageModal" class="image-modal">
                             <div class="modal-overlay"></div>
                             <div class="modal-content">
@@ -52,8 +61,10 @@
 
                 <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
                     <div>
-                        <h1 class="fw-semibold border-revisore-title my-5 my-md-0 text-break">{{ $article_to_check->title }}</h1>
-                        <h3 class="border-revisore-seller text-center mt-5">Autore: {{ $article_to_check->user->name }}</h3>
+                        <h1 class="fw-semibold border-revisore-title my-5 my-md-0 text-break">
+                            {{ $article_to_check->title }}</h1>
+                        <h3 class="border-revisore-seller text-center mt-5">Autore: {{ ucfirst($article_to_check->user->name) }}
+                        </h3>
                         <div class="d-flex justify-content-between my-lg-5 my-4">
                             <h4>{{ $article_to_check->price }} €</h4>
                             <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
@@ -85,7 +96,7 @@
                     <h1 class="fst-italic display-4">
                         Nessun articolo da revisionare
                     </h1>
-                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-success">Torna all'homepage</a>
+                    <a href="{{ route('homepage') }}" class="mt-5 btn btn-custom2">Torna all'homepage</a>
                 </div>
             </div>
 

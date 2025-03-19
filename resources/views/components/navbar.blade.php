@@ -92,7 +92,7 @@
                             <img src="{{ asset('vendor/blade-flags/language-' . $currentLang . '.svg') }}"
                                 width="25" height="25" />
                         </a>
-                        <ul class="dropdown-menu transition mt-custom3" id="dropdown-language"
+                        <ul class="dropdown-menu transition mt-custom border-0" id="dropdown-language"
                             aria-labelledby="languageDropdown">
                             @foreach ($languages as $lang => $name)
                                 @if ($lang !== $currentLang)
@@ -138,7 +138,7 @@
                     @endguest
                     @auth
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle d-flex align-items-center position-relative" href="#"
+                            <a class="nav-link dropdown-toggle d-flex align-items-center position-relative p-0" href="#"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 {{-- Ciao, {{ ucfirst(Auth::user()->name) }} --}}
                                 <i class="bi bi-person-circle"></i>
@@ -150,7 +150,7 @@
                                     @endif
                                 @endif
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition  mt-custom2"
+                            <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition"
                                 id="dropdown-user">
                                 @if (Auth::user()->is_revisor)
                                     <li>

@@ -3,7 +3,7 @@
         AdVibe-Home
     @endpush
 
-    <div class="container-fluid vh-100">
+    <div class="container-fluid vh-lg-100">
         <div class="row mt-5 py-5">
             @if (session()->has('errorMessage'))
                 <div class="row justify-content-center">
@@ -87,14 +87,14 @@
         </div>
     </div>
     {{-- ULTIMI ANNUNCI --}}
-    <div class="container mt-5">
+    <div class="container mt-5 mt-md-0">
         <h2 class="display-5 pt-5 mt-5 mb-0 text-title fw-semibold border-custom2" data-aos="fade-right">
             Ultimi annunci pubblicati
         </h2>
         <div
             class="row heigh-custom justify-content-center align-items-center bg-section-home text-color-2 mx-1 pt-md-5 pt-2">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-3 justify-content-center d-flex my-md-5 mt-2"  data-aos="zoom-in">
+                <div class="col-12 col-lg-3 col-md-5 justify-content-center d-flex my-md-5 mt-2"  data-aos="zoom-in">
                     <x-card :article="$article" />
                 </div>
             @empty
@@ -116,7 +116,7 @@
         <div class="row mx-1 overflow-hidden pt-5 bg-section-home">
             <div class="col-12">
                 <div class="row row-swiper position-relative mb-5 shadow-sm rounded">
-                    <div class="col-12 col-md-4">
+                    <div class="col-12 col-md-6 col-lg-4">
                         <div class="swiper-container p-5">
                             <div class="swiper-wrapper">
                                 @foreach ($categories as $category)
@@ -309,7 +309,7 @@
                                         compravendita di prodotti tecnologici.</p>
                                     <div class="d-flex justify-content-center gap-3">
                                         <a href="{{ route('login') }}"
-                                            class="btn btn-custom transition py-2 px-4 fw-semibold">Accedi</a>
+                                            class="btn btn-custom transition py-2 px-4 fw-semibold d-flex align-items-center">Accedi</a>
                                         <a href="{{ route('index.article') }}"
                                             class="btn btn-number transition py-2 px-4 fw-semibold">Esplora Annunci</a>
                                     </div>
@@ -341,21 +341,21 @@
     {{-- RECENSIONI --}}
     <div class="container">
         <div class="row mb-5 py-5 rounded-bottom-3 bg-section-home mx-1">
-            <div class="col-md-4 my-md-5">
+            <div class="col-md-4 my-md-5 mb-1">
                 <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
                     <p class="review-text">"Ottima piattaforma! Ho venduto il mio smartphone in pochi giorni."</p>
                     <h5 class="fw-bold mt-3">Mario Rossi</h5>
                     <span class="text-warning">★★★★★</span>
                 </div>
             </div>
-            <div class="col-md-4 my-md-5">
+            <div class="col-md-4 my-md-5 my-1">
                 <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
                     <p class="review-text">"Servizio eccellente! Ho trovato un laptop perfetto a un prezzo super."</p>
                     <h5 class="fw-bold mt-3">Giulia Bianchi</h5>
                     <span class="text-warning">★★★★★</span>
                 </div>
             </div>
-            <div class="col-md-4 my-md-5">
+            <div class="col-md-4 my-md-5 mt-1">
                 <div class="review-card p-4 shadow rounded text-center d-flex flex-column justify-content-between">
                     <p class="review-text">"Consigliatissimo! La community è attiva e le transazioni sono sicure."</p>
                     <h5 class="fw-bold mt-3">Luca Verdi</h5>

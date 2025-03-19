@@ -5,36 +5,44 @@
     <div class="container">
         <div class="row height-custom justify-content-center align-items-center text-center">
             <div class="col-12 mt-5">
-                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">Informazioni articolo</h1>
+                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">
+                    Informazioni articolo</h1>
             </div>
         </div>
-        <div class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3 px-2 py-5 mx-1">
+        <div
+            class="row justify-content-center align-items-center mb-5 rounded-bottom-3 px-2 py-5 mx-1">
             <div class="col-12 col-md-6 mb-3">
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://picsum.photos/400" class="d-block w-100 rounded shadow" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/400" class="d-block w-100 rounded shadow" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://picsum.photos/400" class="d-block w-100 rounded shadow" alt="...">
+                <div class="layout-container">
+                    @if ($article->images->count())
+                        @foreach ($article->images as $key => $image)
+                            <div class="overflow-hidden">
+                                <img src="{{ Storage::url($image->path) }}"
+                                    alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article->title }}'"
+                                    class="w-100 rounded img-effect-revisor d-block mb-1">
+                            </div>
+                        @endforeach
+                    @else
+                        @for ($i = 0; $i < 6; $i++)
+                            <div class="overflow-hidden">
+                                <img src="https://picsum.photos/300"
+                                    class="w-100 rounded img-effect-revisor d-block mb-1" alt="immagine segnaposto">
+                            </div>
+                        @endfor
+                    @endif
+                    <div id="imageModal" class="image-modal">
+                        <div class="modal-overlay"></div>
+                        <div class="modal-content">
+                            <img id="modalImage" src="" alt="Immagine ingrandita">
+                            <span class="close-modal">&times;</span>
+                            <button class="nav-btn prev-btn">&lt;</button>
+                            <button class="nav-btn next-btn">&gt;</button>
+                            <div class="image-counter"><span id="currentImageIndex">1</span>/<span
+                                    id="totalImages">6</span></div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
-            <div class="col-12 col-md-6 mb-3 height-custom text-center">
+            <div class="col-12 col-md-6 mb-3 height-custom text-center bg-section-home">
                 <h2 class="display-5 text-break"><span class="fw-bold">Titolo:</span> {{ $article->title }}</h2>
                 <div class="d-flex flex-column justify-content-center h-75">
                     <h4 class="fw-bold">Prezzo: {{ $article->price }} €</h4>

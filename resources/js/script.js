@@ -345,3 +345,109 @@ function setupSearchForm(inputSelector, buttonSelector, formSelector) {
                     '.d-none.d-lg-block #basic-addon2',
                     '.d-none.d-lg-block form');
   });
+
+//------------------------------------------------------------------------------------------------
+// DETTAGLIO IMMAGINI
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Seleziona tutte le immagini con la classe img-effect-revisor
+//     const images = document.querySelectorAll(".img-effect-revisor");
+//     const modal = document.getElementById("imageModal");
+//     const modalImg = document.getElementById("modalImage");
+//     const closeBtn = document.querySelector(".close-modal");
+//     const prevBtn = document.querySelector(".prev-btn");
+//     const nextBtn = document.querySelector(".next-btn");
+//     const currentIndexEl = document.getElementById("currentImageIndex");
+//     const totalImagesEl = document.getElementById("totalImages");
+
+//     let currentIndex = 0;
+//     const imagesArray = Array.from(images);
+//     totalImagesEl.textContent = imagesArray.length;
+
+//     // Aggiunge evento click a ogni immagine
+//     imagesArray.forEach((img, index) => {
+//         img.addEventListener("click", function () {
+//             openModal(index);
+//         });
+//     });
+
+//     function openModal(index) {
+//         currentIndex = index;
+//         updateModalImage();
+//         modal.style.display = "block";
+//         document.body.style.overflow = "hidden"; // Impedisce lo scorrimento della pagina
+//     }
+
+//     function updateModalImage() {
+//         modalImg.src = imagesArray[currentIndex].src;
+//         currentIndexEl.textContent = currentIndex + 1;
+
+//         // Animazione di cambio immagine
+//         modalImg.classList.add("image-change");
+//         setTimeout(() => {
+//             modalImg.classList.remove("image-change");
+//         }, 300);
+//     }
+
+//     // Navigazione al precedente
+//     prevBtn.addEventListener("click", function () {
+//         currentIndex =
+//             (currentIndex - 1 + imagesArray.length) % imagesArray.length;
+//         updateModalImage();
+//     });
+
+//     // Navigazione al successivo
+//     nextBtn.addEventListener("click", function () {
+//         currentIndex = (currentIndex + 1) % imagesArray.length;
+//         updateModalImage();
+//     });
+
+//     // Navigazione con tastiera
+//     document.addEventListener("keydown", function (e) {
+//         if (modal.style.display === "block") {
+//             if (e.key === "ArrowLeft") {
+//                 currentIndex =
+//                     (currentIndex - 1 + imagesArray.length) %
+//                     imagesArray.length;
+//                 updateModalImage();
+//             } else if (e.key === "ArrowRight") {
+//                 currentIndex = (currentIndex + 1) % imagesArray.length;
+//                 updateModalImage();
+//             } else if (e.key === "Escape") {
+//                 closeModal();
+//             }
+//         }
+//     });
+
+//     // Chiude il modal quando si clicca sulla X
+//     closeBtn.addEventListener("click", function () {
+//         closeModal();
+//     });
+
+//     // Chiude il modal quando si clicca fuori dall'immagine
+//     modal.addEventListener("click", function (e) {
+//         if (
+//             e.target === modal ||
+//             e.target.classList.contains("modal-overlay")
+//         ) {
+//             closeModal();
+//         }
+//     });
+
+//     function closeModal() {
+//         modal.style.display = "none";
+//         document.body.style.overflow = "auto"; // Ripristina lo scorrimento della pagina
+//     }
+
+//     // Aggiungi stile per l'animazione di cambio immagine
+//     const style = document.createElement("style");
+//     style.innerHTML = `
+//       @keyframes imageChange {
+//         0% { opacity: 0.5; transform: scale(0.95); }
+//         100% { opacity: 1; transform: scale(1); }
+//       }
+//       .image-change {
+//         animation: imageChange 0.3s ease;
+//       }
+//     `;
+//     document.head.appendChild(style);
+// });
