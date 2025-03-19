@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 
@@ -39,4 +40,13 @@ class ArticleController extends Controller implements HasMiddleware
         return view('article.byCategory', compact('articles', 'category'));
     }
 
+    // FUNZIONE IL MIO PROFILO
+    public function myArticles (){
+        $myArticles = Auth::user()->articles()->orderBy('created_at', 'desc')->get();
+        $favoriteArticles = Auth::user()->savedArticles()->orderBy('created_at', 'desc')->get();
+
+        return view('article.myArticles', compact('myArticles', 'favoriteArticles'));
+    }
+
 }
+

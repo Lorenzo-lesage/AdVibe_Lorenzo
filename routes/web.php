@@ -5,6 +5,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\RevisorController;
 
+//ROTTE PUBLICCONTROLLER
 // ROTTA HOMEPAGE
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 // ROTTA RICERCA ARTICOLI
@@ -12,6 +13,8 @@ Route::get('/search/article', [PublicController::class, 'searchArticles'])->name
 // ROTTA PER CAMBIARE LINGUA
 Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
 
+// ----------------------------------------------------------------------------------------------------------------
+//ROTTE ARTICLECONTROLLER
 // ROTTA ARTICOLI
 Route::get('/create/article', [ArticleController::class, 'create'])->name('create.article');
 Route::get('/index/article', [ArticleController::class, 'index'])->name('index.article');
@@ -20,6 +23,11 @@ Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name(
 // CATEGORIE
 Route::get('/category/{category}', [ArticleController::class, 'bycategory'])->name('byCategory');
 
+//ROTTA PARAMETRICA WHISHLIST
+Route::get("/my-articles", [ArticleController::class, 'myArticles'])->name('my.articles');
+
+// ----------------------------------------------------------------------------------------------------------------
+//ROTTE REVISORCONTROLLER
 // REVISORE
 Route::get('/revisor/index', [RevisorController::class, 'index'])->middleware('isRevisor')->name('revisor.index');
 Route::patch('/accept/{article}', [RevisorController::class, 'accept'])->name('accept');
@@ -28,3 +36,4 @@ Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('r
 // MAIL
 Route::get('/revisor/request', [RevisorController::class, 'BecomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
+

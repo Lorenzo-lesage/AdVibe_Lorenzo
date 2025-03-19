@@ -46,6 +46,7 @@
                 <h2 class="display-5 text-break"><span class="fw-bold">Titolo:</span> {{ $article->title }}</h2>
                 <div class="d-flex flex-column justify-content-center h-75">
                     <h4 class="fw-bold">Prezzo: {{ $article->price }} €</h4>
+                    <livewire:wish-list :article="$article" />
                     <h5>Descrizione:</h5>
                     <p class="text-break">{{ $article->description }}</p>
                 </div>

@@ -171,7 +171,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Another action
+                                    <a class="dropdown-item {{ Route::currentRouteName() == 'my.articles' ? 'active' : '' }}"
+                                        href="{{ route('my.articles') }}">Profilo
                                     </a>
                                 </li>
                                 <li>

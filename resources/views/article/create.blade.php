@@ -1,6 +1,5 @@
 <x-layout>
     @push('title')
-        AdVibe-Pubblica un articolo
     @endpush
     <div class="container mt-5">
         <div class="row justify-content-center">
