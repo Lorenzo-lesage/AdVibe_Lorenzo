@@ -4,9 +4,11 @@ namespace App\Livewire;
 
 use App\Models\Article;
 use Livewire\Component;
+use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CreateArticleForm extends Component
 {
@@ -40,10 +42,11 @@ class CreateArticleForm extends Component
 
         if(count($this->images) > 0) {
             foreach ($this->images as $image) {
-                $this->article->images()->create([
-                    'path' => $image->store('images', 'public')
-                ]);
+                $newFileName = "articles/{$this->article->id}";
+                $newImage = $this->article->images()->create(['path' => $image->store('$newFileName', 'public')]);
+                dispatch(new ResizeImage($newImage->path, 350, 350));
             }
+            File::deleteDirectory(storage_path('/app/livewire-tmp'));
         }
 
         return redirect()->route('create.article')->with('success', 'Operazione avvenuta con successo!');
@@ -64,13 +67,20 @@ class CreateArticleForm extends Component
     public function updatedTemporaryImages()
     {
 
-        if ($this->validate([
-            'temporary_images.*' => 'image|max:1024',
-            'temporary_images' => 'max:10'
-        ])) {
-            foreach ($this->temporary_images as $image) {
-                $this->images[] = $image;
-            }
+        // Validazione immagini singole
+        $this->validate([
+            'temporary_images.*' => 'image|max:1024', // Ogni immagine max 1MB
+        ]);
+
+        // Controllo limite massimo di 10 immagini
+        if ((count($this->images) + count($this->temporary_images)) > 10) {
+            session()->flash('error', 'Puoi caricare un massimo di 10 immagini.');
+            return;
+        }
+
+        // Aggiunta immagini all'array
+        foreach ($this->temporary_images as $image) {
+            $this->images[] = $image;
         }
 
     }

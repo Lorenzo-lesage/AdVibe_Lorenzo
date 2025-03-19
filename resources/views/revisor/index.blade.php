@@ -26,13 +26,12 @@
         @if ($article_to_check)
 
             <div class="row justify-content-evenly pt-5">
-
                 <div class="col-md-6 shadow my-5 p-2 rounded">
                     <div class="layout-container ">
                         @if ($article_to_check->images->count())
                             @foreach ($article_to_check->images as $key => $image)
                                 <div class="overflow-hidden">
-                                    <img src="{{ Storage::url($image->path) }}"
+                                    <img src="{{ $image->getUrl(350, 350)}}"
                                         alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'"
                                         class="w-100 rounded img-effect-revisor d-block mb-1">
                                 </div>
@@ -88,7 +87,6 @@
 
                     </div>
                 </div>
-
             </div>
         @else
             <div class="row justify-content-center align-items-center height-custom text-center">
@@ -99,7 +97,6 @@
                     <a href="{{ route('homepage') }}" class="mt-5 btn btn-custom2">Torna all'homepage</a>
                 </div>
             </div>
-
         @endif
 
     </div>

@@ -2,13 +2,13 @@
         <div class="card-body bg-card rounded shadow p-0">
 
             @if ($article->images->count() > 0)
-                <div id="carouselExample1" class="carousel carousel-dark slide">
+                <div id="carousel{{ $article->id }}" class="carousel carousel-dark slide">
                     <div class="carousel-inner position-relative ">
                         <p class="card-text fw-bold card-price">€ {{ $article->price }}</p>
                         @foreach ($article->images as $key => $image)
                             <div class="carousel-item @if ($loop->first) active @endif">
                                 <div class="p-2">
-                                    <img src="{{ Storage::url($image->path) }}"
+                                    <img src="{{ $image->getUrl(350, 350)}}"
                                         alt="Immagine {{ $key + 1 }} dell'articolo {{ $article->title }}"
                                         class="img-card w-100 rounded">
                                 </div>
@@ -16,12 +16,12 @@
                         @endforeach
                     </div>
                     @if ($article->images->count() > 1)
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{ $article->id }}"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1"
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel{{ $article->id }}"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>

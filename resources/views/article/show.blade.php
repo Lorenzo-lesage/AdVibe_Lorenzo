@@ -16,7 +16,7 @@
                     @if ($article->images->count())
                         @foreach ($article->images as $key => $image)
                             <div class="overflow-hidden">
-                                <img src="{{ Storage::url($image->path) }}"
+                                <img src="{{ $image->getUrl(350, 350)}}"
                                     alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article->title }}'"
                                     class="w-100 rounded img-effect-revisor d-block mb-1">
                             </div>
