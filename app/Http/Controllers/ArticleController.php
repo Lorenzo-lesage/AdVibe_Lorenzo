@@ -26,7 +26,7 @@ class ArticleController extends Controller implements HasMiddleware
 
     public function index()
     {
-        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->paginate(6);
+        $articles = Article::where('is_accepted', true)->whereNot('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(6);
         return view('article.index', compact('articles'));
     }
 
@@ -37,13 +37,13 @@ class ArticleController extends Controller implements HasMiddleware
 
     public function bycategory(Category $category)
     {
-        $articles = $category->articles()->where('is_accepted', true)->paginate(6);
+        $articles = $category->articles()->where('is_accepted', true)->whereNot('user_id', Auth::id())->paginate(6);
         return view('article.byCategory', compact('articles', 'category'));
     }
 
     // FUNZIONE IL MIO PROFILO
     public function myArticles (){
-        $myArticles = Auth::user()->articles()->orderBy('created_at', 'desc')->get();
+        $myArticles = Auth::user()->articles()->where('is_accepted', true)->orderBy('uptaded_at', 'desc')->get();
         $favoriteArticles = Auth::user()->savedArticles()->orderBy('created_at', 'desc')->get();
 
         return view('article.myArticles', compact('myArticles', 'favoriteArticles'));

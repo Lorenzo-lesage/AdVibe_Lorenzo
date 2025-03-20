@@ -41,7 +41,7 @@
 
                     <!-- BOTTONE LOGIN -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-form fw-bold">Accedi</button>
+                        <button type="submit" class="btn btn-custom2 fw-bold">Accedi</button>
                     </div>
 
                     <!-- LINK REGISTRAZIONE -->

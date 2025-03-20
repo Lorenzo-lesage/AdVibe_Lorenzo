@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Article;
 use App\Models\Category;
 use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -63,7 +64,7 @@ class Article extends Model
     // LOGICA CONTEGGIO ARTICOLI DA REVISIONARE
     public static function toBeRevisedCount()
     {
-        return Article::where('is_accepted', null)->count();
+        return Article::where('is_accepted', null)->whereNot('user_id', Auth::id())->count();
     }
 
     // LOGICA PER RICERCA ARTICOLO

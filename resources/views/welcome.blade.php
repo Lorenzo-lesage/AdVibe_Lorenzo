@@ -316,9 +316,9 @@
                                         compravendita di prodotti tecnologici.</p>
                                     <div class="d-flex justify-content-center gap-3">
                                         <a href="{{ route('login') }}"
-                                            class="btn btn-custom transition py-2 px-4 fw-semibold d-flex align-items-center">Accedi</a>
+                                            class="btn btn-custom2 transition py-2 px-4 fw-semibold d-flex align-items-center">Accedi</a>
                                         <a href="{{ route('index.article') }}"
-                                            class="btn btn-number transition py-2 px-4 fw-semibold">Esplora Annunci</a>
+                                            class="btn btn-custom2 transition py-2 px-4 fw-semibold">Esplora Annunci</a>
                                     </div>
                                 </div>
                             @endguest
@@ -330,9 +330,9 @@
                                         prodotti tecnologici.</p>
                                     <div class="d-flex justify-content-center gap-3">
                                         <a href="{{ route('create.article') }}"
-                                            class="btn btn-custom transition py-2 px-4 fw-semibold">Pubblica annuncio</a>
+                                            class="btn btn-custom2 transition py-2 px-4 fw-semibold">Pubblica annuncio</a>
                                         <a href="{{ route('index.article') }}"
-                                            class="btn btn-number transition py-2 px-4 fw-semibold">Esplora Annunci</a>
+                                            class="btn btn-custom2 transition py-2 px-4 fw-semibold">Esplora Annunci</a>
                                     </div>
                                 </div>
                             @endauth

@@ -79,7 +79,6 @@
 /* ----------------------------------------------------------------------------------------------------------- */
 /* FUNZINALITÀ GENERICHE */
 body {
-    margin-top: 3rem;
     color: var(--color-secondary);
 }
 
@@ -92,16 +91,6 @@ body {
 }
 
 /* COLORI BOTTONI */
-.btn-custom {
-    color: var(--color-quinary) !important;
-    border: 1px solid var(--color-quinary) !important;
-    transition: all 0.3s ease-in-out !important;
-}
-.btn-custom:hover {
-    background-color: var(--color-quinary) !important;
-    color: var(--color-secondary) !important;
-}
-
 .btn-custom2 {
     border: 2px solid var(--color-secondary) !important;
     border-radius: 10px;
@@ -113,27 +102,6 @@ body {
     color: var(--color-quinary) !important;
     text-shadow: 0px 0px 10px var(--color-primary-op);
     border: 2px solid var(--color-quinary) !important;
-}
-
-.btn-form {
-    color: var(--color-secondary) !important;
-    border: 1px solid var(--color-secondary) !important;
-    transition: all 0.3s ease-in-out !important;
-}
-.btn-form:hover {
-    background-color: var(--color-quinary) !important;
-    color: var(--color-secondary) !important;
-    border: 1px solid var(--color-quinary) !important;
-}
-
-.btn-number {
-    color: var(--color-secondary) !important;
-    border: 1px solid var(--color-secondary) !important;
-    transition: all 0.3s ease-in-out !important;
-}
-.btn-number:hover {
-    background-color: var(--color-secondary) !important;
-    color: var(--color-quinary) !important;
 }
 
 .btn-footer {
@@ -206,25 +174,6 @@ body {
         var(--color-quinary-op) 0%,
         var(--color-quinary-op-2) 50%,
         var(--color-quinary-op) 100%);
-}
-
-.btn-card {
-    color: var(--color-secondary) !important;
-    border: 1px solid var(--color-quinary) !important;
-    transition: all 0.3s ease-in-out !important;
-}
-.btn-card:hover {
-    background-color: var(--color-quinary) !important;
-    color: var(--color-primary) !important;
-}
-
-.btn-category {
-    border: 1px solid var(--color-secondary) !important;
-    padding: 4px 10px !important;
-}
-.btn-category:hover {
-    background-color: var(--color-secondary) !important;
-    color: var(--color-primary) !important;
 }
 
 /* PREZZO CARD */
@@ -555,6 +504,10 @@ body {
     background-color: transparent !important;
     color: var(--color-quinary);
     font-weight: bold;
+}
+
+.advibe-nav:hover span {
+    color: var(--color-primary) !important;
 }
 
 .logout-link:hover {

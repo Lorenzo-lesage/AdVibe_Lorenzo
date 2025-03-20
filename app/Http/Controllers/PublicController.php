@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
     public function homepage()
     {
-        $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->take(4)->get();
+        $articles = Article::where('is_accepted', true)->whereNot('user_id', Auth::id())->orderBy('created_at', 'desc')->take(4)->get();
         return view('welcome', compact('articles'));
     }
 
@@ -47,7 +48,7 @@ class PublicController extends Controller
     // FUNZIONE PER I PROFILI DETTAGLIO
     public function profileShow (User $user) {
         // Recupera gli articoli creati dall'utente
-        $profileArticles = Article::where('user_id', $user->id)->get();
+        $profileArticles = Article::where('user_id', $user->id)->where('is_accepted', true)->orderBy('updated_at', 'desc')->get();
 
         // Recupera gli articoli preferiti dell'utente
         $favoriteArticles = $user->savedArticles; // Assicurati di avere una relazione definita

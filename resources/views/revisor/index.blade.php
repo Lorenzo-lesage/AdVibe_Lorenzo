@@ -11,9 +11,58 @@
                         Revisor dashboard
                     </h1>
                 </div>
+                <div class="col-6 col-md-12 col-lg-6">
+                    <div class="rounded px-1 py-3">
+                        <details class="custom-details">
+                            <summary class="custom-summary text-title fw-semibold p-2 text-gradient-title">Articoli revisionati</summary>
+                            <div class="content">
+                                @if ($articles_to_recheck->isNotEmpty())
+                                    <table class="table table-bordered table-striped shadow-sm rounded">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Titolo</th>
+                                                <th scope="col">Autore</th>
+                                                <th scope="col">Ultima modifica</th>
+                                                <th scope="col">Stato</th>
+                                                <th scope="col">Azione</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($articles_to_recheck as $article)
+                                                <tr>
+                                                    <td class="text-break">{{ $article->title }}</td>
+                                                    <td class="text-break">{{ ucfirst($article->user->name) }}</td>
+                                                    <td>{{ $article->updated_at->format('d/m/Y H:i') }}</td>
+                                                    <td>
+                                                        @if ($article->is_accepted == true)
+                                                            Accettato
+                                                        @elseif ($article->is_accepted == false)
+                                                            Rifiutato
+                                                        @endif
+                                                    </td>
+                                                    <td class="d-flex justify-content-center">
+                                                        <form action="{{ route('revisor.undo', ['article' => $article->id]) }}"
+                                                            method="POST">
+                                                            @csrf
+                                                            @method('PATCH')
+                                                            <button type="submit"
+                                                                class="btn btn-sm fw-bold btn-custom2">Ripristina articolo</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @else
+                                    <p class="fst-italic text-center p-5 fs-4 text-color-1">Non ci sono articoli revisionati</p>
+                                @endif
+                            </div>
+                        </details>
+                    </div>
+                </div>
             </div>
             @if (session()->has('message'))
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-3">
                     <div class="col-5 alert alert-success text-center shadow center">
                         {{ session('message') }}
                         <button type="button" class="btn-close position-absolute mt-3 me-3 top-0 end-0"
@@ -31,7 +80,7 @@
                         @if ($article_to_check->images->count())
                             @foreach ($article_to_check->images as $key => $image)
                                 <div class="overflow-hidden">
-                                    <img src="{{ $image->getUrl(350, 350)}}"
+                                    <img src="{{ $image->getUrl(350, 350) }}"
                                         alt="Immagine {{ $key + 1 }} dell'articolo '{{ $article_to_check->title }}'"
                                         class="w-100 rounded img-effect-revisor d-block mb-1">
                                 </div>
@@ -62,7 +111,8 @@
                     <div>
                         <h1 class="fw-semibold border-revisore-title my-5 my-md-0 text-break">
                             {{ $article_to_check->title }}</h1>
-                        <h3 class="border-revisore-seller text-center mt-5">Autore: {{ ucfirst($article_to_check->user->name) }}
+                        <h3 class="border-revisore-seller text-center mt-5">Autore:
+                            {{ ucfirst($article_to_check->user->name) }}
                         </h3>
                         <div class="d-flex justify-content-between my-lg-5 my-4">
                             <h4>{{ $article_to_check->price }} €</h4>

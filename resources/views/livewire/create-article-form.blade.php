@@ -87,7 +87,7 @@
         @endif
         {{-- button submit --}}
         <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-form fw-bold">Pubblica annuncio</button>
+            <button type="submit" class="btn btn-custom2 fw-bold">Pubblica annuncio</button>
         </div>
     </form>
 </div>

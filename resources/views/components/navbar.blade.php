@@ -47,7 +47,7 @@
                             href="{{ route('index.article') }}">Catalogo</a>
                     </li>
                     <li>
-                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1 {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">Profili</a>
+                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1  advibe-nav {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">Utenti Ad<span class="text-color-5 transition">Vibe</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -147,7 +147,7 @@
                                     <li>
                                         <a class="dropdown-item {{ Route::currentRouteName() == 'revisor.index' ? 'active' : '' }} position-relative @if (App\Models\Article::toBeRevisedCount() > 0) vibrate @endif"
                                             href="{{ route('revisor.index') }}">Zona revisore
-                                            @if (App\Models\Article::toBeRevisedCount() > 0)
+                                            @if (App\Models\Article::toBeRevisedCount() > 0 )
                                                 <span
                                                     class="position-absolute top-0 start-0 translate-middle badge rounded-pill notifica2">
                                                     {{ \App\Models\Article::toBeRevisedCount() }}

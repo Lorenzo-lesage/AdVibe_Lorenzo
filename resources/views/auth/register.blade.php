@@ -66,7 +66,7 @@
 
                     <!-- Bottone Registrati -->
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-form fw-bold">Registrati</button>
+                        <button type="submit" class="btn btn-custom2 fw-bold">Registrati</button>
                     </div>
                 </form>
             </div>

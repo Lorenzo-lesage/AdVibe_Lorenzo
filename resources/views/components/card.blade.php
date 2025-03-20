@@ -49,11 +49,11 @@
                 <h5 class="card-title text-center text-title text-truncate w-100">{{ $article->title }}</h5>
                 <div class="d-flex justify-content-between w-100 mt-3">
                     <a href="{{ route('show.article', compact('article')) }}"
-                        class="btn btn-sm justify-content-center d-flex btn-card transition w-50 text-center">
+                        class="btn btn-sm justify-content-center d-flex btn-custom2 transition w-50 text-center">
                         Dettaglio
                     </a>
                     <a href="{{ route('byCategory', ['category' => $article->category]) }}"
-                        class="btn btn-sm btn-category transition">
+                        class="btn btn-sm btn-custom2 transition">
                         {{ $article->category->name }}
                     </a>
                 </div>

@@ -15,8 +15,18 @@ class RevisorController extends Controller
     //REVISORE DASHBOARD
     public function index()
     {
-        $article_to_check = Article::where('is_accepted', null)->first();
-        return view('revisor.index', compact('article_to_check'));
+        // Recupera gli annunci in attesa di revisione (is_accepted = null)
+        $article_to_check = Article::where('is_accepted', null)
+        ->where('user_id', '!=', Auth::id()) // Esclude gli annunci dell'utente attuale
+        ->orderBy('updated_at', 'desc')
+        ->first();
+
+        $articles_to_recheck = Article::whereIn('is_accepted', [true, false]) // Filtra solo gli articoli accettati o rifiutati
+        ->where('user_id', '!=', Auth::id()) // Esclude gli articoli dell'utente attuale
+        ->orderBy('updated_at', 'desc')
+        ->get(); // Ottieni tutti gli articoli
+
+        return view('revisor.index', compact('article_to_check', 'articles_to_recheck'));
     }
 
     // LOGICA ACCETTAZIONE ARTICOLO
@@ -45,5 +55,14 @@ class RevisorController extends Controller
     {
         Artisan::call('app:make-user-revisor', ['email' => $user->email]);
         return redirect()->back();
+    }
+
+    // LOGICA PER ANNULLARE L'AZIONE SULL'ANNUNCIO
+        public function undoArticleAction(Article $article)
+    {
+        $article->is_accepted = null;
+        $article->save();
+
+        return redirect()->back()->with('success', "L'azione sull'annuncio '{$article->title}' è stata annullata.");
     }
 }

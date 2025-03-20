@@ -46,10 +46,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 mb-3 height-custom text-center bg-section-home">
+            <div class="col-12 col-md-6 mb-3 height-custom text-center bg-1 p-3 rounded">
                 <h2 class="display-5 text-break"><span class="fw-bold">Titolo:</span> {{ $article->title }}</h2>
                 @if ($article->user_id !== auth()->id())
-                    <a href="{{ route('profile.show', ['user' => $article->user_id]) }}" class="btn btn-primary mt-3">
+                    <a href="{{ route('profile.show', ['user' => $article->user_id]) }}" class="btn btn-custom2 mt-3">
                         Visita il profilo del venditore
                     </a>
                 @endif
