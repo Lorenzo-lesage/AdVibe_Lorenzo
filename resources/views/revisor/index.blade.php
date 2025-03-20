@@ -25,7 +25,7 @@
 
         @if ($article_to_check)
 
-            <div class="row justify-content-evenly pt-5">
+            <div class="row justify-content-evenly pt-5 heigh-custom">
                 <div class="col-md-6 shadow my-5 p-2 rounded">
                     <div class="layout-container ">
                         @if ($article_to_check->images->count())
@@ -89,7 +89,7 @@
                 </div>
             </div>
         @else
-            <div class="row justify-content-center align-items-center height-custom text-center">
+            <div class="row justify-content-center align-items-center height-custom text-center heigh-custom">
                 <div class="col-12">
                     <h1 class="fst-italic display-4">
                         Nessun articolo da revisionare

@@ -1,9 +1,13 @@
 <div class="wish-list-icon">
     <button wire:click="toggleSavedArticles" class="border-0 bg-transparent">
         @if ($isFavorite)
-            <i class="bi bi-heart-fill text-danger fs-5 fw-bold"></i> <!-- Cuore pieno -->
+            <div class="heart-fill">
+                <i class="bi bi-heart-fill text-danger fs-2 heart-fill"></i> <!-- Cuore pieno -->
+            </div>
         @else
-            <i class="bi bi-heart fs-5 "></i> <!-- Cuore vuoto -->
+            <div class="heart">
+                <i class="bi bi-heart fs-2 heart"></i> <!-- Cuore vuoto -->
+            </div>
         @endif
     </button>
 </div>

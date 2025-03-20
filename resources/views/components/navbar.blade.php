@@ -46,6 +46,9 @@
                         <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'index.article' ? 'active' : '' }}"
                             href="{{ route('index.article') }}">Catalogo</a>
                     </li>
+                    <li>
+                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1 {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">Profili</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -70,20 +73,8 @@
                         $languages = [
                             'it' => 'Italiano',
                             'en' => 'English',
-                            'es' => 'Español',
-                            'fr' => 'Français',
-                            'de' => 'Deutsch',
-                            'pt' => 'Português',
-                            'ru' => 'Русский',
-                            'zh' => '中文',
-                            'ja' => '日本語',
-                            'ar' => 'العربية',
-                            'hi' => 'हिन्दी',
-                            'nl' => 'Nederlands',
-                            'sv' => 'Svenska',
                             'pl' => 'Polski',
-                            'ko' => '한국어',
-                            'tr' => 'Türkçe',
+
                         ];
                     @endphp
                     <li class="dropdown d-flex align-items-center">
@@ -172,7 +163,7 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'my.articles' ? 'active' : '' }}"
-                                        href="{{ route('my.articles') }}">Profilo
+                                        href="{{ route('my.articles') }}">Profilo personale
                                     </a>
                                 </li>
                                 <li>

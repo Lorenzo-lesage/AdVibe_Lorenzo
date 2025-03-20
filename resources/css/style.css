@@ -230,13 +230,60 @@ body {
 /* PREZZO CARD */
 .card-price {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     background-color: var(--color-quinary-op-3);
     padding: 5px 10px;
     border-radius: 50px;
     color: var(--color-secondary);
     z-index: 1;
+}
+
+.card-heart {
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    color: var(--color-secondary);
+    z-index: 2;
+}
+
+.heart {
+    transition: all 0.2s ease-in-out;
+}
+.heart:hover {
+    scale: 1.2 !important;
+    color: var(--color-quinary) !important;
+    text-shadow: 2px 2px 10px rgb(17, 1, 1);
+    animation: vibrate 0.4s infinite !important;
+}
+
+.heart-fill {
+    transition: all 0.2s ease-in-out;
+}
+.heart-fill:hover {
+    scale: 0.9;
+    color: rgb(45, 13, 209) !important;
+}
+
+@keyframes vibrate {
+    0%,
+    20% {
+        transform: translateX(0);
+    } /* Stato iniziale e pausa */
+    30% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+    60% {
+        transform: translateX(2px);
+    }
+    70%,
+    100% {
+        transform: translateX(0);
+    } /* Ritorna in posizione e pausa */
 }
 
 /* CARD IMG */
@@ -812,6 +859,48 @@ body {
     color: var(--color-primary) !important;
     border: 2px solid var(--color-secondary) !important;
 }
+
+/* ----------------------------------------------------------------------------------------------------------- */
+/* PAGINA PROFILO */
+.custom-details {
+    border: 2px solid var(--color-quinary-op);
+    border-radius: 8px;
+    background-color: var(--color-secondary-op);
+    font-size: 2vh;
+    transition: scale 0.3s ease, background-color 0.6s ease-in-out;
+}
+.custom-details:hover {
+    scale: 1.03;
+}
+.custom-details[open]:hover {
+    scale: 1;
+}
+
+/* Quando il dettaglio è aperto */
+.custom-details[open] {
+    background-color: rgba(0, 0, 0, 0.8); /* Aggiungi un colore di sfondo più scuro */
+    z-index: 9999; /* Porta il contenuto sopra gli altri elementi */
+    position: fixed; /* Usa una posizione fissa per fare in modo che il contenuto occupi l'intera pagina */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; /* Fissa i margini su tutta la pagina */
+    height: 100vh;
+    margin-top: 0 !important;
+    width: 100%;
+}
+/* Quando è aperto, espandi il contenuto e rendilo scrollabile */
+.custom-details[open] .content {
+    padding: 15px;
+    overflow-y: auto; /* Abilita lo scroll verticale */
+    height: 89vh;
+}
+
+.custom-details[open] .custom-summary {
+    font-size: 6vh;
+    text-align: center;
+}
+
 /* ----------------------------------------------------------------------------------------------------------- */
 /* MEDIA QUERIES */
 
@@ -867,6 +956,15 @@ body {
 
     .next-btn {
     right: -60px;
+    }
+
+    .custom-details {
+        border: 2px solid var(--color-quinary-op);
+        border-radius: 8px;
+        background-color: var(--color-secondary-op);
+        font-size: 1.5vh;
+        width: 100%;
+        transition: scale 0.3s ease, background-color 0.6s ease-in-out;
     }
 
 }

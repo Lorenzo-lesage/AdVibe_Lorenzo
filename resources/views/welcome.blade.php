@@ -56,13 +56,14 @@
     <div class="container-fluid d-none d-lg-block">
         <div class="row height-custom">
             <div class="col-12">
-                <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-pause="false"
-                    data-bd-interval="4000" data-aos="fade-down">
+                <div id="carouselExample" class="carousel slide carousel-fade" data-bs-ride="carousel"
+                    data-bs-pause="false" data-bd-interval="4000" data-aos="fade-down">
                     <div class="carousel-inner carousel carousel-home rounded shadow">
                         <div class="carousel-item active carousel1 position-relative">
                             <div class="carousel-caption carousel-text">
                                 <h2 class="fw-bold fs-1 text-title text-gradient-title">Trova il meglio per te!</h2>
-                                <p class="fs-4 text-gradient-title">Scopri offerte esclusive e articoli selezionati per ogni tua esigenza!
+                                <p class="fs-4 text-gradient-title">Scopri offerte esclusive e articoli selezionati per
+                                    ogni tua esigenza!
                                 </p>
                             </div>
                         </div>
@@ -86,6 +87,7 @@
             </div>
         </div>
     </div>
+
     {{-- ULTIMI ANNUNCI --}}
     <div class="container mt-5 mt-md-0">
         <h2 class="display-5 pt-5 mt-5 mb-0 text-title fw-semibold border-custom2" data-aos="fade-right">
@@ -94,7 +96,7 @@
         <div
             class="row heigh-custom justify-content-center align-items-center bg-section-home text-color-2 mx-1 pt-md-5 pt-2">
             @forelse ($articles as $article)
-                <div class="col-12 col-lg-3 col-md-5 justify-content-center d-flex my-md-5 mt-2"  data-aos="zoom-in">
+                <div class="col-12 col-lg-3 col-md-5 justify-content-center d-flex my-md-5 mt-2" data-aos="zoom-in">
                     <x-card :article="$article" />
                 </div>
             @empty
@@ -104,8 +106,8 @@
                     </h3>
                 </div>
             @endforelse
-            <h2
-                class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom" data-aos="fade-left">
+            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom"
+                data-aos="fade-left">
                 Categorie
             </h2>
         </div>
@@ -158,7 +160,8 @@
                     </div>
                 </div>
             </div>
-            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2" data-aos="fade-right">
+            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2"
+                data-aos="fade-right">
                 Perché scegliere Ad<span class="text-gradient-title">Vibe</span>?
             </h2>
         </div>
@@ -183,7 +186,8 @@
             </div>
 
             <div class="col-12 col-md-4 mb-4 mt-md-5">
-                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe" data-aos="zoom-out">
+                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe"
+                    data-aos="zoom-out">
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3">
                             <i class="bi bi-lightning-charge fs-1 text-color-5"></i>
@@ -196,7 +200,8 @@
             </div>
 
             <div class="col-12 col-md-4 mb-4 mt-md-5">
-                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe" data-aos="fade-left">
+                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe"
+                    data-aos="fade-left">
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3">
                             <i class="bi bi-people fs-1 text-color-5"></i>
@@ -209,7 +214,8 @@
             </div>
 
             <div class="col-12 col-md-6 mb-4">
-                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe" data-aos="flip-right">
+                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe"
+                    data-aos="flip-right">
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3">
                             <i class="bi bi-star fs-1 text-color-5"></i>
@@ -222,7 +228,8 @@
             </div>
 
             <div class="col-12 col-md-6 mb-4">
-                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe" data-aos="flip-left">
+                <div class="card h-100 border-0 shadow rounded bg-1 p-3 text-center card-why-advibe"
+                    data-aos="flip-left">
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3">
                             <i class="bi bi-graph-up-arrow fs-1 text-color-5"></i>
@@ -234,8 +241,8 @@
                 </div>
             </div>
 
-            <h2
-                class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom" data-aos="fade-left">
+            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-gradient-title text-end fw-semibold border-custom"
+                data-aos="fade-left">
                 I Nostri Numeri
             </h2>
         </div>
@@ -333,7 +340,8 @@
                     </div>
                 </div>
             </div>
-            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2" data-aos="fade-right">Cosa dicono
+            <h2 class="display-5 pt-md-5 mb-0 mt-5 pt-5 text-title text-color-2 fw-semibold border-custom2"
+                data-aos="fade-right">Cosa dicono
                 i nostri utenti</h2>
         </div>
     </div>

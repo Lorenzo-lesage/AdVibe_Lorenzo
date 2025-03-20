@@ -14,9 +14,10 @@
                 </h1>
             </div>
         </div>
-        <div class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3  px-2 py-5 mx-1">
+        <div
+            class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3  px-2 py-5 mx-1">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-3 justify-content-center d-flex">
                     <x-card :article="$article" />
                 </div>
             @empty
@@ -25,7 +26,8 @@
                         Non sono ancora stati creati articoli per questa categoria!
                     </h3>
                     @auth
-                        <a class="btn btn-custom btn-lg fw-bold my-5" href="{{ route('create.article') }}">Pubblica un articolo</a>
+                        <a class="btn-lg fw-bold my-5 mt-5 btn btn-custom2" href="{{ route('create.article') }}">Pubblica un
+                            articolo</a>
                     @endauth
                 </div>
             @endforelse
