@@ -1,12 +1,12 @@
 <x-layout>
     @push('title')
-        AdVibe-Catalogo
+        {{ __('ui.catalog_title') }}
     @endpush
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">
-                    Tutti gli articoli
+                    {{ __('ui.catalog_articles') }}
                 </h1>
             </div>
         </div>
@@ -18,7 +18,7 @@
             @empty
                 <div class="col-12">
                     <h3 class="fw-semibold text-center w-md-50">
-                        Non sono ancora stati creati articoli
+                        {{ __('ui.no_articles') }}
                     </h3>
                 </div>
             @endforelse

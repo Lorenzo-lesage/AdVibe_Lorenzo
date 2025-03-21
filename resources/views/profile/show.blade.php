@@ -1,24 +1,26 @@
 <x-layout>
     @push('title')
-        AdVibe-Profilo
+        AdVibe-{{ __('ui.schedaUser')}}
     @endpush
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 text-center"">
-                <h1 class="display-3 pt-md-5 my-5 text-title fw-semibold border-custom mb-0 text-color-2 ">Profilo di
-                    <span class="text-color-5 text-title">{{ ucfirst($user->name) }}</span>
+            <div class="col-12 text-center">
+                <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0 text-color-2">
+                    {{ __('ui.profile') }} <span class="text-color-5 text-title">{{ ucfirst($user->name) }}</span>
                 </h1>
             </div>
         </div>
+
         <div class="row justify-content-center d-flex my-5 py-5 bg-1 rounded">
             <div class="col-4 col-md-3 col-lg-2">
                 <div class="bg-2-op rounded px-1 py-3">
                     <details class="custom-details">
-                        <summary class="custom-summary text-title fw-semibold p-2 text-gradient-title">Articoli di
-                            {{ ucfirst($user->name) }}</summary>
+                        <summary class="custom-summary text-title fw-semibold p-2 text-gradient-title">
+                            {{ __('ui.profile_articles') }} {{ ucfirst($user->name) }}
+                        </summary>
                         <div class="content p-5">
                             @if ($profileArticles->isEmpty())
-                                <p class="fst-italic text-center p-5 fs-4 text-color-1">Nessun articolo pubblicato</p>
+                                <p class="fst-italic text-center p-5 fs-4 text-color-1">{{ __('ui.no_articles') }}</p>
                             @else
                                 <div class="row m-2 py-3 justify-content-center">
                                     @foreach ($profileArticles as $article)
@@ -36,8 +38,7 @@
                         </summary>
                         <div class="content">
                             @if ($favoriteArticles->isEmpty())
-                                <p class="fst-italic text-center p-5 fs-4 text-color-1">Nessun articolo nei preferiti
-                                </p>
+                                <p class="fst-italic text-center p-5 fs-4 text-color-1">{{ __('ui.no_favorites') }}</p>
                             @else
                                 <div class="row m-2 py-3 justify-content-center">
                                     @foreach ($favoriteArticles as $article)

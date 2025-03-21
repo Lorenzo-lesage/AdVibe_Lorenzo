@@ -64,6 +64,17 @@
     background-attachment: fixed;
 }
 
+.bg-category {
+    background: linear-gradient(
+        var(--color-primary-op),
+        var(--color-primary-op)
+        ),
+        url("/storage/app/public/media/bg-categorie-home.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
 /* ----------------------------------------------------------------------------------------------------------- */
 /* COLORI TESTI */
 .text-color-1 {
@@ -420,9 +431,6 @@ body {
     background-color: var(--color-primary) !important;
 }
 
-.card-why-advibe p {
-    color: var(--color-secondary);
-}
 /* Stile per l'hover sul card-body */
 .card-why-advibe .card-body {
     transition: all 0.3s ease;
@@ -430,7 +438,6 @@ body {
 
 .card-why-advibe:hover .card-body {
     transform: translateY(-20px); /* Leggero effetto di sollevamento */
-    border-radius: 0.5rem; /* Bordi arrotondati */
     scale: 0.9;
 }
 
@@ -664,7 +671,6 @@ body {
 /* IMG REVISORE */
 .border-revisore-title {
     border-bottom: 2px solid var(--color-secondary);
-
 }
 
 .border-revisore-seller {
@@ -692,7 +698,6 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1000;
-
   }
 
   .modal-overlay {
@@ -702,7 +707,6 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-
   }
 
   .modal-content {
@@ -784,7 +788,7 @@ body {
 }
 
 /* ----------------------------------------------------------------------------------------------------------- */
-/* PGAGINA FORM ARTICOLO */
+/* PAGINA FORM ARTICOLO */
 .img-preview {
     background-position: center;
     background-repeat: no-repeat;

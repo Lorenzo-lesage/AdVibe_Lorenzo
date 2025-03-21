@@ -3,7 +3,7 @@
     <div class="container-fluid d-flex justify-content-start">
         <!-- Bottone per aprire il menu laterale -->
         <button class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false"
-            aria-label="Toggle navigation" id="btn-settings">
+            aria-label="{{ __('ui.toggle_navigation') }}" id="btn-settings">
             <span><i class="bi bi-list" id="settings" data-bs-toggle="offcanvas"
                     data-bs-target="#navbarNav"></i></span>
         </button>
@@ -17,7 +17,7 @@
             <form action="{{ route('search.article') }}" class="d-none" role="search" method="GET" id="searchBar">
                 <div class="input-group">
                     <input type="search" name="query" class="form-control input-search-navbar"
-                        placeholder="Search..." aria-lable="search" id="searchInput">
+                        placeholder="{{ __('ui.search_placeholder') }}" aria-lable="search" id="searchInput">
                     <button type="submit" class="input-group-text btn btn-footer btn-input-search-bar"
                         id="basic-addon2">
                         <i class="bi bi-search"></i>
@@ -28,7 +28,7 @@
 
         <!-- Logo -->
         <a class="navbar-brand" href="{{ route('homepage') }}">
-            <img class="logo transition" src="{{ asset('./media/logo.png') }}" alt="Logo Navbar">
+            <img class="logo transition" src="{{ asset('./media/logo.png') }}" alt="{{ __('ui.logo_alt') }}">
         </a>
 
         <!-- Offcanvas (menu laterale) con larghezza ridotta -->
@@ -36,23 +36,23 @@
             aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
                 <a class="nav-link text-color-1 offcanvas-title {{ Route::currentRouteName() == 'homepage' ? 'active' : '' }}"
-                    href="{{ route('homepage') }}" id="offcanvasNavbarLabel">Menù</a>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Chiudi"
+                    href="{{ route('homepage') }}" id="offcanvasNavbarLabel">{{ __('ui.menu') }}</a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="{{ __('ui.close') }}"
                     id="settings2"></button>
             </div>
             <div class="offcanvas-body d-lg-flex align-items-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link text-color-1 {{ Route::currentRouteName() == 'index.article' ? 'active' : '' }}"
-                            href="{{ route('index.article') }}">Catalogo</a>
+                            href="{{ route('index.article') }}">{{ __('ui.catalog') }}</a>
                     </li>
                     <li>
-                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1  advibe-nav {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">Utenti Ad<span class="text-color-5 transition">Vibe</span></a>
+                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1  advibe-nav {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">{{ __('ui.advibe_users') }}</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Categorie
+                            {{ __('ui.categories') }}
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-2 mt-custom border-0 transition"
                             id="dropdown-menu">
@@ -74,7 +74,6 @@
                             'it' => 'Italiano',
                             'en' => 'English',
                             'pl' => 'Polski',
-
                         ];
                     @endphp
                     <li class="dropdown d-flex align-items-center">
@@ -110,7 +109,7 @@
                             method="GET">
                             <div class="input-group">
                                 <input type="search" name="query" class="form-control input-search-navbar"
-                                    placeholder="Search..." aria-lable="search">
+                                    placeholder="{{ __('ui.search_placeholder') }}" aria-lable="search">
                                 <button type="submit" class="input-group-text btn btn-footer btn-input-search-bar"
                                     id="basic-addon2">
                                     <i class="bi bi-search"></i>
@@ -122,7 +121,7 @@
                         <li class="nav-item d-flex align-items-center ms-lg-2">
                             <a class="nav-link text-color-1 login-icon {{ Route::currentRouteName() == 'login' ? 'active' : '' }}"
                                 href="{{ route('login') }}">
-                                Accedi
+                                {{ __('ui.login') }}
                                 <i class="bi bi-box-arrow-in-right"></i>
                             </a>
                         </li>
@@ -146,7 +145,7 @@
                                 @if (Auth::user()->is_revisor)
                                     <li>
                                         <a class="dropdown-item {{ Route::currentRouteName() == 'revisor.index' ? 'active' : '' }} position-relative @if (App\Models\Article::toBeRevisedCount() > 0) vibrate @endif"
-                                            href="{{ route('revisor.index') }}">Zona revisore
+                                            href="{{ route('revisor.index') }}">{{ __('ui.revisor_zone') }}
                                             @if (App\Models\Article::toBeRevisedCount() > 0 )
                                                 <span
                                                     class="position-absolute top-0 start-0 translate-middle badge rounded-pill notifica2">
@@ -158,12 +157,12 @@
                                 @endif
                                 <li>
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'create.article' ? 'active' : '' }}"
-                                        href="{{ route('create.article') }}">Pubblica annuncio
+                                        href="{{ route('create.article') }}">{{ __('ui.publish_ad') }}
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item {{ Route::currentRouteName() == 'my.articles' ? 'active' : '' }}"
-                                        href="{{ route('my.articles') }}">Profilo personale
+                                        href="{{ route('my.articles') }}">{{ __('ui.personal_profile') }}
                                     </a>
                                 </li>
                                 <li>
@@ -171,10 +170,10 @@
                                 </li>
                                 <li class="d-none d-lg-block">
                                     <form id="form-logout" class="ps-2" action="{{ route('logout') }}" method="POST"
-                                        onsubmit="return confirm('Sei sicuro di voler fare logout?');">
+                                        onsubmit="return confirm('{{ __('ui.logout_confirm') }}');">
                                         @csrf
                                         <button class="logout-icon transition" type="submit">
-                                            Logout <i class="bi bi-box-arrow-right"></i>
+                                            {{ __('ui.logout') }} <i class="bi bi-box-arrow-right"></i>
                                         </button>
                                     </form>
                                 </li>
@@ -182,10 +181,10 @@
                         </li>
                         <li class="d-block d-lg-none">
                             <form id="form-logout" action="{{ route('logout') }}" method="POST"
-                                onsubmit="return confirm('Sei sicuro di voler fare logout?');">
+                                onsubmit="return confirm('{{ __('ui.logout_confirm') }}');">
                                 @csrf
                                 <button class="logout-icon transition" type="submit">
-                                    Logout <i class="bi bi-box-arrow-right"></i>
+                                    {{ __('ui.logout') }} <i class="bi bi-box-arrow-right"></i>
                                 </button>
                             </form>
                         </li>

@@ -1,12 +1,12 @@
 <x-layout>
     @push('title')
-        AdVibe-Categorie
+        AdVibe - {{ __('ui.title') }}
     @endpush
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">
-                    Articoli della categoria "
+                    {{ __('ui.category_articles') }} "
                     <span class="fst-italic fw-bold text-color-2">
                         {{ $category->name }}
                     </span>
@@ -23,11 +23,11 @@
             @empty
                 <div class="col-12 text-center">
                     <h3 class="fw-semibold w-md-50">
-                        Non sono ancora stati creati articoli per questa categoria!
+                        {{ __('ui.no_articles') }}
                     </h3>
                     @auth
-                        <a class="btn-lg fw-bold my-5 mt-5 btn btn-custom2" href="{{ route('create.article') }}">Pubblica un
-                            articolo</a>
+                        <a class="btn-lg fw-bold my-5 mt-5 btn btn-custom2"
+                            href="{{ route('create.article') }}">{{ __('ui.create_article') }}</a>
                     @endauth
                 </div>
             @endforelse
