@@ -8,7 +8,7 @@
                 <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom mb-0">
                     {{ __('ui.category_articles') }} "
                     <span class="fst-italic fw-bold text-color-2">
-                        {{ $category->name }}
+                        {{ __('ui.' . $category->name) }}
                     </span>
                     "
                 </h1>

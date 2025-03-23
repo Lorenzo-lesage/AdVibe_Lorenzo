@@ -14,19 +14,27 @@
 
         <div
             class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3 px-2 py-5 mx-1">
-            @foreach ($users as $user)
-                @if ($user->id !== auth()->id())
+            @forelse ($profiles as $profile)
+                @if ($profile->user_id !== auth()->id())
                     <div class="col-12 col-md-4 justify-content-center d-flex">
                         <div class="card text-center p-3 bg-card">
-                            <h3 class="fw-bold">{{ ucfirst($user->name) }}</h3>
-                            <p>{{ __('ui.email') }}: {{ $user->email }}</p>
-                            <a href="{{ route('profile.show', $user->id) }}" class="btn btn-custom2">
+                            <img src="{{ Storage::url($profile->profile_image) }}" alt=""
+                                class="img-profile img-fluid mb-3">
+                            <h3 class="fw-bold">{{ ucfirst($profile->name) }} {{ ucfirst($profile->surname) }}</h3>
+                            <a href="{{ route('profile.show', ['user' => $profile->user_id, 'profile' => $profile->id]) }}"
+                                class="btn btn-custom2">
                                 {{ __('ui.view_profile') }}
                             </a>
                         </div>
                     </div>
                 @endif
-            @endforeach
+            @empty
+                <div class="col-12">
+                    <h3 class="fw-semibold text-center w-md-50">
+                        Nessun profilo presente
+                    </h3>
+                </div>
+            @endforelse
         </div>
     </div>
 </x-layout>

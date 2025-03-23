@@ -40,20 +40,4 @@ class PublicController extends Controller
         return redirect()->back();
     }
 
-    // FUNZIONE PER I PROFILI
-    public function profilesIndex() {
-        $users = User::all(); // Recupera tutti gli utenti
-        return view('profile.index', compact('users'));
-    }
-    // FUNZIONE PER I PROFILI DETTAGLIO
-    public function profileShow (User $user) {
-        // Recupera gli articoli creati dall'utente
-        $profileArticles = Article::where('user_id', $user->id)->where('is_accepted', true)->orderBy('updated_at', 'desc')->get();
-
-        // Recupera gli articoli preferiti dell'utente
-        $favoriteArticles = $user->savedArticles; // Assicurati di avere una relazione definita
-
-        return view('profile.show', compact('user', 'profileArticles', 'favoriteArticles'));
-    }
-
 }

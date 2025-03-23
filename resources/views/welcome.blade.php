@@ -8,7 +8,7 @@
             @if (session()->has('errorMessage'))
                 <div class="row justify-content-center">
                     <div class="col-5 alert alert-danger text-center shadow center">
-                        {{ session('message') }}
+                        {{ __('ui.error') }}
                         <button type="button" class="btn-close position-absolute mt-3 me-3 top-0 end-0"
                             data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
@@ -142,7 +142,7 @@
                                         <a href="{{ route('byCategory', ['category' => $category]) }}"
                                             class="swiper-link rounded shadow">
                                             <div class="category-title">
-                                                <h2>{{ $category->name }}</h2>
+                                                <h2>{{ __('ui.' . $category->name) }}</h2>
                                             </div>
                                         </a>
                                     </div>

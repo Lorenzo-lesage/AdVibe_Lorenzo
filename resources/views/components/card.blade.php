@@ -57,7 +57,7 @@
                 </a>
                 <a href="{{ route('byCategory', ['category' => $article->category]) }}"
                     class="btn btn-sm btn-custom2 transition">
-                    {{ $article->category->name }}
+                    {{ __('ui.' . $article->category->name) }}
                 </a>
             </div>
         </div>

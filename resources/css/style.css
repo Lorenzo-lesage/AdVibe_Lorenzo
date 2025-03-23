@@ -858,6 +858,12 @@ body {
     text-align: center;
 }
 
+.img-profile {
+    width: 70px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
 /* ----------------------------------------------------------------------------------------------------------- */
 /* MEDIA QUERIES */
 

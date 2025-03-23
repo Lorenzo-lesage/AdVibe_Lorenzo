@@ -103,7 +103,7 @@ return [
     'logo_alt' => 'Logo nawigacji',
     'menu' => 'Menu',
     'catalog' => 'Katalog',
-    'advibe_users' => 'Użytkownicy AdVibe',
+    'advibe_users' => 'Użytkownicy',
     'categories' => 'Kategorie',
     'close' => 'Zamknij',
     'login' => 'Zaloguj się',
@@ -150,7 +150,17 @@ return [
     'action' => 'Działanie',
     'rejected' => 'rifiutato',
     'accepted' => 'accettato',
-
-
-
+    'success' => 'Operacja zakończona powodzeniem!',
+    'error' => 'Operacja nie powiodła się, spróbuj ponownie później.',
+    // CATEGORIE
+    'Smartphone' => 'Smartfon',
+    'Tablet' => 'Tablet',
+    'Smartwatch' => 'Zegarek inteligentny',
+    'Laptop' => 'Laptop',
+    'Fotocamere' => 'Aparaty fotograficzne',
+    'Videocamere' => 'Kamery wideo',
+    'Videogiochi' => 'Gry wideo',
+    'Console' => 'Konsola',
+    'Stampanti' => 'Drukarki',
+    'Droni' => 'Drony',
 ];

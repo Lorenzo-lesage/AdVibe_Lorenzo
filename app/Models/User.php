@@ -4,7 +4,9 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Article;
+use App\Models\Profile;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,10 +57,16 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
-    // RELAZIONE CO ARTICOLI SELEZIONATI TRA I PREFERITI
+    // RELAZIONE CON ARTICOLI SELEZIONATI TRA I PREFERITI
     public function savedArticles(): BelongsToMany
     {
         return $this->belongsToMany(Article::class)
             ->withTimestamps(); // Registra automaticamente created_at e updated_at nella pivot
+    }
+
+    // REKAÌLAZIONE CON PROFILO
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
     }
 }

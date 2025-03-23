@@ -40,7 +40,7 @@
             <div class="col-12 col-md-6 mb-3 height-custom text-center bg-1 p-3 rounded">
                 <h2 class="display-5 text-break"><span class="fw-bold">{{ __('ui.title') }}:</span> {{ $article->title }}</h2>
                 @if ($article->user_id !== auth()->id())
-                    <a href="{{ route('profile.show', ['user' => $article->user_id]) }}" class="btn btn-custom2 mt-3">
+                    <a href="{{ route('profile.show', ['user' => $article->user_id, 'profile' => $article->user->profile->id]) }}" class="btn btn-custom2 mt-3">
                         {{ __('ui.visit_seller') }}
                     </a>
                 @endif

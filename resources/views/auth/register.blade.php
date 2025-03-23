@@ -49,7 +49,7 @@
                         <input type="password" class="form-control @error('password') is-invalid @enderror"
                             id="password" name="password">
                         @error('password')
-                            <p class="fst-italic text-gradient-title bg-2-op rounded-bottom-2">
+                            <p class="fst-italic text-center text-color-1 bg-danger rounded-bottom-2">
                                 {{ $message }}
                             </p>
                         @enderror

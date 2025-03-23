@@ -47,7 +47,7 @@
                             href="{{ route('index.article') }}">{{ __('ui.catalog') }}</a>
                     </li>
                     <li>
-                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1  advibe-nav {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">{{ __('ui.advibe_users') }}</a>
+                        <a href="{{ route('profiles.index') }}" class="nav-link text-color-1  advibe-nav {{ Route::currentRouteName() == 'profiles.index' ? 'active' : '' }}">{{ __('ui.advibe_users') }} Ad<span class="text-color-5 transition">Vibe</span></a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -59,7 +59,8 @@
                             @foreach ($categories as $category)
                                 <li>
                                     <a class="dropdown-item text-capitalize"
-                                        href="{{ route('byCategory', ['category' => $category]) }}">{{ $category->name }}</a>
+                                        href="{{ route('byCategory', ['category' => $category]) }}">{{ __('ui.' . $category->name) }}
+                                    </a></a>
                                 </li>
                             @endforeach
                         </ul>

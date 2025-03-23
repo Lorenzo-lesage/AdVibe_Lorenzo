@@ -41,13 +41,5 @@ class ArticleController extends Controller implements HasMiddleware
         return view('article.byCategory', compact('articles', 'category'));
     }
 
-    // FUNZIONE IL MIO PROFILO
-    public function myArticles (){
-        $myArticles = Auth::user()->articles()->where('is_accepted', true)->orderBy('updated_at', 'desc')->get();
-        $favoriteArticles = Auth::user()->savedArticles()->orderBy('created_at', 'desc')->get();
-
-        return view('article.myArticles', compact('myArticles', 'favoriteArticles'));
-    }
-
 }
 

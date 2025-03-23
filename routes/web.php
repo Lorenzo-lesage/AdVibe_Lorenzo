@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RevisorController;
 
 //ROTTE PUBLICCONTROLLER
@@ -12,10 +13,23 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 Route::get('/search/article', [PublicController::class, 'searchArticles'])->name('search.article');
 // ROTTA PER CAMBIARE LINGUA
 Route::post('/lingua/{lang}', [PublicController::class, 'setLanguage'])->name('setLocale');
-// ROTTA PROFILI
-Route::get('/profiles', [PublicController::class, 'profilesIndex'])->name('profiles.index');
-Route::get("/profile/{user}", [PublicController::class, 'profileShow'])->name('profile.show');
 
+// PROFILECONTROLLER
+// ROTTA PROFILI
+Route::get('/profiles', [ProfileController::class, 'profilesIndex'])->name('profiles.index');
+Route::get("/profile/{user}/{profile}", [ProfileController::class, 'profileShow'])->name('profile.show');
+// ROTTA CREAZIONE PROFILO
+Route::get('/user/profile/form', [ProfileController::class, 'create'])->name('profile.form');
+// ROTTA PER INVIO DATI PROFILO A ÌL DB
+Route::post('/profile/store', [ProfileController::class, 'store'])->name('profile.store');
+// ROTTA PER MODIFICA PROFILO
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+// rotta per mandare modifiche al DB
+Route::put('/profile/put/{profile}', [ProfileController::class, 'put'])->name('profile.put');
+// ROTTA PER ELIMINAZIONE PROFILO
+Route::delete('/profile/delete/{profile}', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//ROTTA PARAMETRICA WHISHLIST
+Route::get("/my-articles", [ProfileController::class, 'myArticles'])->name('my.articles');
 // ----------------------------------------------------------------------------------------------------------------
 //ROTTE ARTICLECONTROLLER
 // ROTTA ARTICOLI
@@ -26,11 +40,6 @@ Route::get('/show/article/{article}', [ArticleController::class, 'show'])->name(
 // CATEGORIE
 Route::get('/category/{category}', [ArticleController::class, 'bycategory'])->name('byCategory');
 
-//ROTTA PARAMETRICA WHISHLIST
-Route::get("/my-articles", [ArticleController::class, 'myArticles'])->name('my.articles');
-
-
-
 // ----------------------------------------------------------------------------------------------------------------
 //ROTTE REVISORCONTROLLER
 // REVISORE
@@ -40,8 +49,6 @@ Route::patch('/reject/{article}', [RevisorController::class, 'reject'])->name('r
 // ROTTA PER MODIFICARE AZIONE SU ARTICOLO
 Route::patch('/revisor/undo/{article}', [RevisorController::class, 'undoArticleAction'])->name('revisor.undo');
 
-
 // MAIL
 Route::get('/revisor/request', [RevisorController::class, 'BecomeRevisor'])->middleware('auth')->name('become.revisor');
 Route::get('/make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
-

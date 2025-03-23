@@ -102,7 +102,7 @@ return [
     'logo_alt' => 'Navbar Logo',
     'menu' => 'Menu',
     'catalog' => 'Catalog',
-    'advibe_users' => 'AdVibe Users',
+    'advibe_users' => 'Users',
     'categories' => 'Categories',
     'close' => 'Close',
     'login' => 'Login',
@@ -149,6 +149,17 @@ return [
     'action' => 'Action',
     'rejected' => 'Odrzucony',
     'accepted' => 'Przyjęty',
-
-
+    'success' => 'Operation completed successfully!',
+    'error' => 'Operation failed, please try again later.',
+    // CATEGRIE
+    'Smartphone' => 'Smartphone',
+    'Tablet' => 'Tablet',
+    'Smartwatch' => 'Smartwatch',
+    'Laptop' => 'Laptop',
+    'Fotocamere' => 'Cameras',
+    'Videocamere' => 'Video Cameras',
+    'Videogiochi' => 'Video Games',
+    'Console' => 'Consoles',
+    'Stampanti' => 'Printers',
+    'Droni' => 'Drones',
 ];
