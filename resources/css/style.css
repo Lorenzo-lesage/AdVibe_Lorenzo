@@ -673,13 +673,6 @@ body {
     border-bottom: 2px solid var(--color-secondary);
 }
 
-.border-revisore-seller {
-    border-bottom: 2px solid var(--color-secondary);
-    border-right: 2px solid var(--color-quinary);
-    border-left: 2px solid var(--color-quinary);
-    border-radius: 30px;
-}
-
 .img-effect-revisor {
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -820,9 +813,6 @@ body {
 /* ----------------------------------------------------------------------------------------------------------- */
 /* PAGINA PROFILO */
 .custom-details {
-    border: 2px solid var(--color-quinary-op);
-    border-radius: 8px;
-    background-color: var(--color-secondary-op);
     font-size: 2vh;
     transition: scale 0.3s ease, background-color 0.6s ease-in-out;
 }
@@ -831,6 +821,7 @@ body {
 }
 .custom-details[open]:hover {
     scale: 1;
+    border: 2px solid var(--color-quinary-op);
 }
 
 /* Quando il dettaglio è aperto */
@@ -922,10 +913,7 @@ body {
     }
 
     .custom-details {
-        border: 2px solid var(--color-quinary-op);
-        border-radius: 8px;
-        background-color: var(--color-secondary-op);
-        font-size: 1.5vh;
+        font-size: 1.2vh;
         width: 100%;
         transition: scale 0.3s ease, background-color 0.6s ease-in-out;
     }

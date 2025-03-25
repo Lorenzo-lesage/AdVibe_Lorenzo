@@ -2,17 +2,15 @@
     @push('title')
         AdVibe-{{ __('ui.revisorZone') }}
     @endpush
-    <div class="container-fluid mt-5 pt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
-
-            <div class="col-12 col-md-4">
-                <div class="rounded shadow bg-body-secondary">
-                    <h1 class="display-5 text-center p-2">
+            <div class="col-12 text-center">
+                    <h1 class="display-3 pt-md-5 my-5 text-title text-gradient-title fw-semibold border-custom">
                         {{ __('ui.revisor_dashboard') }}
                     </h1>
                 </div>
-                <div class="col-6 col-md-12 col-lg-6">
-                    <div class="rounded px-1 py-3">
+                <div class="col-5 col-md-3 col-lg-2">
+                    <div class="rounded px-1">
                         <details class="custom-details">
                             <summary class="custom-summary text-title fw-semibold p-2 text-gradient-title">
                                 {{ __('ui.reviewed_articles') }}</summary>
@@ -36,9 +34,9 @@
                                                     <td>{{ $article->updated_at->format('d/m/Y H:i') }}</td>
                                                     <td>
                                                         @if ($article->is_accepted == true)
-                                                            {{ __('ui.accepted')}}
+                                                            {{ __('ui.accepted') }}
                                                         @elseif ($article->is_accepted == false)
-                                                            {{ __('ui.rejected')}}
+                                                            {{ __('ui.rejected') }}
                                                         @endif
                                                     </td>
                                                     <td class="">
@@ -78,9 +76,11 @@
 
         @if ($article_to_check)
 
-            <div class="row justify-content-evenly pt-5 heigh-custom">
-                <div class="col-md-6 shadow my-5 p-2 rounded">
-                    <div class="layout-container ">
+            <div class="row justify-content-center py-5 mb-5">
+
+                <div class="col-lg-6">
+                    <div class="layout-container shadow rounded">
+
                         @if ($article_to_check->images->count())
                             @foreach ($article_to_check->images as $key => $image)
                                 <div class="overflow-hidden">
@@ -98,9 +98,22 @@
                             @endfor
                         @endif
                     </div>
+
+
+                    <div id="imageModal" class="image-modal">
+                        <div class="modal-overlay"></div>
+                        <div class="modal-content">
+                            <img id="modalImage" src="" alt="Immagine ingrandita">
+                            <span class="close-modal">&times;</span>
+                            <button class="nav-btn prev-btn">&lt;</button>
+                            <button class="nav-btn next-btn">&gt;</button>
+                            <div class="image-counter"><span id="currentImageIndex">1</span>/<span
+                                    id="totalImages">6</span></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-md-4 ps-4 d-flex flex-column justify-content-between">
+                <div class="col-lg-4 ps-4 d-flex flex-column bg-section-home mt-5 mt-lg-0">
                     <div>
                         <h1 class="fw-semibold border-revisore-title my-5 my-md-0 text-break">
                             {{ $article_to_check->title }}</h1>
@@ -117,19 +130,19 @@
                         <form action="{{ route('accept', ['article' => $article_to_check]) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-success py-2 px-5 fw-bold">{{ __('ui.accept') }}</button>
+                            <button class="btn btn-custom2 py-2 px-5 fw-bold">{{ __('ui.accept') }}</button>
                         </form>
 
                         <form action="{{ route('reject', ['article' => $article_to_check]) }}" method="POST">
                             @csrf
                             @method('PATCH')
-                            <button class="btn btn-danger py-2 px-5 fw-bold">{{ __('ui.reject') }}</button>
+                            <button class="btn btn-custom2 py-2 px-5 fw-bold">{{ __('ui.reject') }}</button>
                         </form>
                     </div>
                 </div>
             </div>
         @else
-            <div class="row justify-content-center align-items-center height-custom text-center heigh-custom">
+            <div class="row height-custom text-center">
                 <div class="col-12">
                     <h1 class="fst-italic display-4">{{ __('ui.no_articles_to_review') }}</h1>
                     <a href="{{ route('homepage') }}" class="mt-5 btn btn-custom2">{{ __('ui.return_home') }}</a>
