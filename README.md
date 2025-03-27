@@ -14,28 +14,41 @@
 - MailTrap: per l'accettazione di richiesta di diventare revisore traimte email
 
 ## Funzionalità principali
-- Autenticazione completa (registrazione, login, middleware per restrizioni)
-- Creazione annunci con Livewire e validazioni real-time
-- Inserimento di immagini multiple (fino a 10) con preview e rimozione
-- Crop automatico e applicazione di watermark personalizzato alle immagini
-- Sistema di revisione annunci:
- - Gli utenti possono richiedere di diventare revisori tramite.
- - Il revisore può accettare/rifiutare l'annuncio.
- - Notifica dinamica del numero di annunci da revisionare.
- - Il revisore può ripristinare annunci già valutati per rivalutarli.
- - Il revisore puo pubblicare annunci ma non può revisionare i propri articoli.
-- Ricerca avanzata:
- - Ricerca per categoria.
- - Barra di ricerca con ricerca full-text o parziale.
-- Wishlist:
- - Ogni utente può salvare annunci tra i preferiti.
- - Possibilità di vedere gli annunci preferiti nella propria area personale.
-- Profilo utente:
- - CRUD completo del profilo (creazione, modifica, visualizzazione, eliminazione).
- - Visualizzazione dei profili degli altri utenti e dei relativi annunci preferiti o creati.
-- Traduzione multilingua:
- - Tutto il sito è tradotto (compresi messaggi di validazione, successo e errore).
-- Area personale:
- - Ogni utente può vedere i propri annunci creati e quelli preferiti.
-- Responsive:
- - Interamente responsive e ottimizzato per mobile, tablet e desktop.
+
+- **Autenticazione completa**
+  - Registrazione, login, middleware per restrizioni
+
+- **Creazione annunci con Livewire e validazioni real-time**
+
+- **Inserimento di immagini multiple** (fino a 10) con preview e rimozione
+
+- **Crop automatico e applicazione di watermark personalizzato alle immagini
+
+- **Sistema di revisione annunci**:
+  - Gli utenti possono richiedere di diventare revisori tramite un pulsante
+  - Il revisore può accettare o rifiutare l'annuncio
+  - Notifica dinamica del numero di annunci da revisionare
+  - Il revisore può ripristinare annunci già valutati per rivalutarli
+  - Il revisore può pubblicare annunci ma non può revisionare i propri articoli
+
+- **Ricerca avanzata**:
+  - Ricerca per categoria
+  - Barra di ricerca con ricerca full-text o parziale
+
+- **Wishlist**:
+  - Ogni utente può salvare annunci tra i preferiti
+  - Possibilità di vedere gli annunci preferiti nella propria area personale
+
+- **Profilo utente**:
+  - CRUD completo del profilo (creazione, modifica, visualizzazione, eliminazione)
+  - Visualizzazione dei profili degli altri utenti e dei relativi annunci preferiti o creati
+
+- **Traduzione multilingua**:
+  - Tutto il sito è tradotto (compresi messaggi di validazione, successo e errore)
+
+- **Area personale**:
+  - Ogni utente può vedere i propri annunci creati e quelli preferiti
+
+- **Responsive**:
+  - Interamente responsive e ottimizzato per mobile, tablet e desktop
+
