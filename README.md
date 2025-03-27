@@ -36,7 +36,7 @@
   - Barra di ricerca con ricerca full-text o parziale
 
 - **Wishlist**:
-  - Ogni utente può salvare annunci tra i preferiti
+  - Ogni utente può salvare annunci tra i preferiti (tranne i propri articoli)
   - Possibilità di vedere gli annunci preferiti nella propria area personale
 
 - **Profilo utente**:
