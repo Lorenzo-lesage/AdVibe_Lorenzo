@@ -22,7 +22,7 @@
 
 - **Inserimento di immagini multiple** (fino a 10) con preview e rimozione
 
-- **Crop automatico e applicazione di watermark personalizzato alle immagini
+- **Crop automatico e applicazione di watermark personalizzato alle immagini**
 
 - **Sistema di revisione annunci**:
   - Gli utenti possono richiedere di diventare revisori tramite un pulsante
