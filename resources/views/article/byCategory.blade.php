@@ -17,7 +17,7 @@
         <div
             class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3  px-2 py-5 mx-1">
             @forelse ($articles as $article)
-                <div class="col-12 col-md-3 justify-content-center d-flex">
+                <div class="col-12 col-lg-4 col-md-5 justify-content-center d-flex">
                     <x-card :article="$article" />
                 </div>
             @empty

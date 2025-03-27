@@ -76,7 +76,7 @@
 
         @if ($article_to_check)
 
-            <div class="row justify-content-center py-5 mb-5">
+            <div class="row justify-content-center py-5 px-2 mb-5">
 
                 <div class="col-lg-6">
                     <div class="layout-container shadow rounded">
@@ -123,7 +123,7 @@
                             <h4>{{ $article_to_check->price }} €</h4>
                             <h4 class="fst-italic text-muted">#{{ $article_to_check->category->name }}</h4>
                         </div>
-                        <p class="text-break">{{ $article_to_check->description }}</p>
+                        <p class="text-break"><span class="fw-bold">{{ __('ui.description') }}:</span> {{ $article_to_check->description }}</p>
                     </div>
 
                     <div class="d-flex pb-4 justify-content-around">
@@ -142,8 +142,8 @@
                 </div>
             </div>
         @else
-            <div class="row height-custom text-center">
-                <div class="col-12">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
                     <h1 class="fst-italic display-4">{{ __('ui.no_articles_to_review') }}</h1>
                     <a href="{{ route('homepage') }}" class="mt-5 btn btn-custom2">{{ __('ui.return_home') }}</a>
                 </div>

@@ -14,7 +14,7 @@
 
     <div class="container mb-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-8 col-lg-6">
                 {{-- inizio form --}}
                 <div class="card-header bg-primary bg-opacity-10 py-3">
                     <h4 class="card-title mb-0 text-center">Informazioni Personali</h4>

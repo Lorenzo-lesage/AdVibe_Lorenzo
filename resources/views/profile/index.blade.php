@@ -16,10 +16,10 @@
             class="row justify-content-center align-items-center height-custom mb-5 bg-section-home rounded-bottom-3 px-2 py-5 mx-1">
             @forelse ($profiles as $profile)
                 @if ($profile->user_id !== auth()->id())
-                    <div class="col-12 col-md-4 justify-content-center d-flex">
-                        <div class="card text-center p-3 bg-card">
+                    <div class="col-12 col-md-5 col-lg-3 justify-content-center d-flex">
+                        <div class="card text-center p-3 bg-card w-100 mb-3">
                             <img src="{{ Storage::url($profile->profile_image) }}" alt=""
-                                class="img-profile img-fluid mb-3">
+                                class="img-profile img-fluid mb-3 object-fit-cover">
                             <h3 class="fw-bold">{{ ucfirst($profile->name) }} {{ ucfirst($profile->surname) }}</h3>
                             <a href="{{ route('profile.show', ['user' => $profile->user_id, 'profile' => $profile->id]) }}"
                                 class="btn btn-custom2">

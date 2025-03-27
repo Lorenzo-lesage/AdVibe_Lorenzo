@@ -27,7 +27,7 @@
                                 @else
                                     <div class="row m-2 py-3 justify-content-center">
                                         @foreach ($profileArticles as $article)
-                                            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-evenly mb-3">
+                                            <div class="col-12 col-md-5 col-lg-3 d-flex justify-content-evenly mb-3">
                                                 <x-card :article="$article" />
                                             </div>
                                         @endforeach
@@ -46,7 +46,7 @@
                                 @else
                                     <div class="row m-2 py-3 justify-content-center">
                                         @foreach ($favoriteArticles as $article)
-                                            <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-evenly mb-3">
+                                            <div class="col-12 col-md-5 col-lg-3 d-flex justify-content-evenly mb-3">
                                                 <x-card :article="$article" />
                                             </div>
                                         @endforeach
@@ -56,17 +56,16 @@
                         </details>
                     </div>
                     <img src="{{ Storage::url($profile->profile_image) }}" alt=""
-                        class="img-profile img-fluid mb-3 ms-2 d-md-none">
+                        class="img-profile img-fluid mb-3 ms-2 d-md-none object-fit-cover">
                 </div>
                 <div class="col-12 col-md-9 py-5 px-lg-5 bg-section-home rounded-bottom-3">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3><span class="fw-bold">Nome e Cognome: </span>{{ ucfirst($profile->name) }}
                             {{ ucfirst($profile->surname) }}</h3>
                         <img src="{{ Storage::url($profile->profile_image) }}" alt=""
-                            class="img-profile img-fluid mb-3 ms-2 d-none d-md-block">
+                            class="img-profile img-fluid mb-3 ms-2 d-none d-md-block object-fit-cover">
                     </div>
-                    <p><span class="fw-bold">Email: </span>{{ Auth::user()->email }} <span class="fst-italic">(non
-                            modificabile)</span></p>
+                    <p><span class="fw-bold">Email: </span>{{ $user->email }}</p>
                     <p><span class="fw-bold">Telefono: </span>{{ $profile->phone }}</p>
                     <p><span class="fw-bold">Città: </span>{{ ucfirst($profile->city) }},
                         {{ ucfirst($profile->country) }}</p>
